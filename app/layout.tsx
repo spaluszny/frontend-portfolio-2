@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Inria_Sans, Inria_Serif } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/Components/navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,10 +38,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inriaSans.variable} ${inriaSerif.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} ${inriaSans.variable} ${inriaSerif.variable} antialiased`}>
+        <Navbar />
+        <main>
+          {children}
+        </main>
       </body>
     </html>
   );

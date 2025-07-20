@@ -1,5 +1,8 @@
-import Navbar from "../Components/navbar";
 import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import Link from "next/link";
 
 
 export default function Home() {
@@ -7,17 +10,22 @@ export default function Home() {
 
         <div className="max-w-screen-2xl mx-auto">
 
-            <Navbar />
             <div className="grid grid-cols-2 h-screen gap-20 ">
-                <div className="flex flex-col justify-center items-center">
-                    <h1 className="text-8xl">ABOUT ME</h1>
+                <div className="flex flex-col justify-center items-center pl-20">
+                    <h1 className="text-7xl">ABOUT ME</h1>
                     <hr className="my-10 h-0.5 w-full bg-black"></hr>
-                    <p className="text-lg">I'm a data analyst transitioning into front-end development,
+                    <p className="text-lg">I&#39;m a data analyst transitioning into front-end development,
                          I use my background in data visualization, process automation and stakeholder
                          collaboration to build digital experiences that solve real problems. Having built my web 
                          development foundation with HTML, CSS, and JavaScript as an undergraduate, I am now focusing
-                          on modern technologies like React and Next.js. I'm currently seeking a front-end role where 
+                          on modern technologies like React and Next.js. I&#39;m currently seeking a front-end role where 
                           I can apply a unique user-centered approach to develop applications that are both beautiful and functional.</p>
+                    <div className="w-full pt-5 flex flex-row gap-5">
+                    <Link href={'https://www.linkedin.com/in/sarah-paluszny/'}> <FontAwesomeIcon icon={faLinkedin} className="h-8 hover:text-gray-600 transform transition duration-300 hover:scale-110"/> </Link>
+                    <Link href={'https://github.com/spaluszny'}> <FontAwesomeIcon icon={faGithub} className="h-8 hover:text-gray-600 transform transition duration-300 hover:scale-110"/> </Link>
+
+                    
+                    </div>
                 </div>
                 <div className="relative -z-10">
                     <Image src='/sarahpaluszny.JPG' alt='Sarah Paluszny Portrait' fill objectFit="cover"/>

@@ -1,12 +1,11 @@
-import Navbar from "./Components/navbar";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDoubleDown } from "@fortawesome/free-solid-svg-icons";
-import TypeWriter from "./Components/typewriter";
+import TypeWriter from "../Components/typewriter";
 export default function Home() {
   return (
 
     <div className="max-w-screen-xl mx-auto">
-      <Navbar />
       <div className="h-screen flex flex-col justify-center">
         <div >
           <h1 className="text-8xl font-bold">SARAH PALUSZNY</h1>
