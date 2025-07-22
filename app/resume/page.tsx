@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
 import Education from "@/Components/education";
 import Experience from "@/Components/experience";
+import Skills from "@/Components/skills";
 
 
 export default function Home() {
@@ -26,6 +27,7 @@ export default function Home() {
 
                 <Education />
                 <Experience />
+                <Skills />
 
 
             </div>

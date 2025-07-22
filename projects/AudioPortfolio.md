@@ -5,6 +5,7 @@ description: "During my time at IU, I spent countless hours in the recording stu
 pictureTop: /audio-portfolio.png
 pictureBottom: 
 alt: Audio Portfolio Website
+tags: ['HTML','CSS', 'JavaScript','Figma', 'Photoshop']
 website: https://www.sarahpaluszny.com
 
 ---

@@ -18,6 +18,7 @@ export default function getPostMetadata(basePath: string){
             pictureTop: matterResult.data.pictureTop,
             pictureBottom: matterResult.data.pictureBottom,
             alt: matterResult.data.alt,
+            tags: matterResult.data.tags,
             slug: filename.replace('.md', '')
         }
     })

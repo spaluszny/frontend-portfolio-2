@@ -1,5 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
+import { Tag } from "./tags"
+import { Key } from "react"
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function PostCard(props: { post: any }) {
@@ -26,6 +28,7 @@ export default function PostCard(props: { post: any }) {
                     <hr className="w-30 h-0.5 bg-black"></hr>
                     <p className="pt-4">{post.tools}</p>
                     <p className="font-bold pt-4">{post.description}</p>
+                    <p>{post.tags.map((tag: string) => <Tag tag={tag} key={tag} />)}</p>
 
                 </div>
             </Link>
