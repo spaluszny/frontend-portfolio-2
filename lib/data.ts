@@ -46,3 +46,77 @@ export const ExperienceData: Experience[] = [
     }
 
 ];
+
+
+export interface TagConfig {
+    name: string;
+    category: TagCategory;
+  }
+  
+  export type TagCategory = 
+    | 'programming'
+    | 'frameworks'
+    | 'data'
+    | 'design'
+    | 'tools';
+  
+  // config/tags.ts
+  
+  export const TAG_CATEGORIES: Record<TagCategory, { label: string; colors: string }> = {
+    programming: {
+      label: 'Programming',
+      colors: 'bg-blue-100 text-blue-800 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-700'
+    },
+    frameworks: {
+      label: 'Frameworks & Libraries',
+      colors: 'bg-green-100 text-green-800 border-green-200 dark:bg-green-900/30 dark:text-green-300 dark:border-green-700'
+    },
+    data: {
+      label: 'Data & Analytics',
+      colors: 'bg-purple-100 text-purple-800 border-purple-200 dark:bg-purple-900/30 dark:text-purple-300 dark:border-purple-700'
+    },
+    design: {
+      label: 'Design & Prototyping',
+      colors: 'bg-pink-100 text-pink-800 border-pink-200 dark:bg-pink-900/30 dark:text-pink-300 dark:border-pink-700'
+    },
+    tools: {
+      label: 'Tools & Workflow',
+      colors: 'bg-orange-100 text-orange-800 border-orange-200 dark:bg-orange-900/30 dark:text-orange-300 dark:border-orange-700'
+    }
+  };
+  
+  export const TAGS: TagConfig[] = [
+    // Programming
+    { name: 'HTML', category: 'programming' },
+    { name: 'CSS', category: 'programming' },
+    { name: 'JavaScript', category: 'programming' },
+    { name: 'TypeScript', category: 'programming' },
+    { name: 'Python', category: 'programming' },
+    
+    // Frameworks & Libraries
+    { name: 'React', category: 'frameworks' },
+    { name: 'Next.js', category: 'frameworks' },
+    { name: 'Tailwind', category: 'frameworks' },
+    { name: 'Node.js', category: 'frameworks' },
+    
+    // Data & Analytics
+    { name: 'SQL', category: 'data' },
+    { name: 'SSMS', category: 'data' },
+    { name: 'SSRS', category: 'data' },
+    { name: 'Excel', category: 'data' },
+    { name: 'REST APIs', category: 'data' },
+    { name: 'JSON', category: 'data' },
+    
+    // Design & Prototyping
+    { name: 'Figma', category: 'design' },
+    { name: 'Framer', category: 'design' },
+    { name: 'Photoshop', category: 'design' },
+    { name: 'InDesign', category: 'design' },
+    { name: 'After Effects', category: 'design' },
+    { name: 'Canva', category: 'design' },
+    
+    // Tools & Workflow
+    { name: 'Git', category: 'tools' },
+    { name: 'GitHub', category: 'tools' },
+    { name: 'Agile/Scrum', category: 'tools' }
+  ];
