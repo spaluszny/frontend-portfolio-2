@@ -7,7 +7,6 @@ import PostCard from "@/Components/postcard";
 export default function Home() {
 
   const postMetadata = getPostMetadata('projects')
-  console.log(postMetadata)
   return (
 
     <div className="max-w-screen-xl mx-auto">
@@ -24,7 +23,7 @@ export default function Home() {
           <h1 className="font-sans text-7xl font-bold pr-30 pl-30 text-center">PORTFOLIO</h1>
           <hr className="my-10 h-0.5 w-1/2 bg-black"></hr>
         </div>
-        <div className="flex flex-row gap-10">
+        <div className="flex flex-row flex-wrap gap-10 justify-center pb-50">
           {postMetadata.map((post, postIndex) => {
             return (
               <PostCard key={postIndex} post={post} />

@@ -5,6 +5,7 @@ description: "Equity is an important part of working at a start-up, but calculat
 pictureBottom: /equity-calculator.png
 pictureTop: 
 alt: Equity Calculator Website
+website: https://vercel.com/sarahs-projects-bf2cf08c/equity-calculator
 ---
 
 # Equity Calculator

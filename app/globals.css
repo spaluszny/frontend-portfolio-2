@@ -34,6 +34,7 @@ h1{
   font-family: var(--font-inria-sans);
 }
 
-p{
-  font-family:  var(--font-inria-serif) ;
+h2{
+  font-family: var(--font-inria-sans);
 }
+
