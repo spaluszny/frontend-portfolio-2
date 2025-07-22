@@ -13,7 +13,7 @@ export default function Home() {
             <div className="flex flex-col justify-center items-center">
                 <div className="flex flex-row  items-center gap-5 pt-40">
                     <h1 className=" text-7xl">RESUME</h1>
-                    <a href="/resume.pdf"
+                    <a href="/Sarah_Paluszny_Resume.pdf"
                         download="Sarah_Paluszny_Resume.pdf"
                         target="_blank"
                     ><FontAwesomeIcon icon={faFileArrowDown} className="text-black h-8 hover:text-gray-700" />
