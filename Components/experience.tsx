@@ -1,4 +1,4 @@
-'use client';
+
 
 import ExperienceCard from "./experienceCard";
 

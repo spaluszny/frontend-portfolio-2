@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-'use Client';
+
 import { ExperienceData } from "@/lib/data";
 
 export default function ExperienceCard() {
-  // Group experiences by company
+
   const groupedExperiences = ExperienceData.reduce((acc: any, experience: any) => {
     const companyName = experience.Company;
     
