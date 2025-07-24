@@ -31,13 +31,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+
       <body className={` ${inriaSans.variable} ${inriaSerif.variable} antialiased`}>
-        <Navbar />
-        <ModeToggle />
-        <main>
-          {children}
-        </main>
+        <Providers>
+          <Navbar />
+          <ModeToggle />
+          <main>
+            {children}
+          </main>
+        </Providers>
       </body>
+
     </html>
   );
 }
