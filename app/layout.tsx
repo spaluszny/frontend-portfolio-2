@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inria_Sans, Inria_Serif } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/Components/navbar";
+import { ModeToggle } from "@/Components/modeToggle";
+import { Providers } from "@/Components/providers";
 
 
 
@@ -31,6 +33,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={` ${inriaSans.variable} ${inriaSerif.variable} antialiased`}>
         <Navbar />
+        <ModeToggle />
         <main>
           {children}
         </main>

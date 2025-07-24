@@ -16,7 +16,7 @@ export default function Home() {
           <div className="font-sans text-5xl font-light"><TypeWriter text='ront-End Engineer' speed={150} /></div>
 
         </div>
-        <FontAwesomeIcon icon={faAngleDoubleDown} className="text-black h-10 animate-bounce absolute bottom-10 left-1/2 transform -translate-x-1/2 z-0" />
+        <FontAwesomeIcon icon={faAngleDoubleDown} className="text-black dark:text-white h-10 animate-bounce absolute bottom-10 left-1/2 transform -translate-x-1/2 z-0" />
       </div>
       <div className="h-screen mx-auto w-fit">
         <div className="flex flex-col items-center">

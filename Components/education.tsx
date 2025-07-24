@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Education() {
     return (
-        <div className="border-2 font-sans p-10">
+        <div className="border-2 dark:border-1 font-sans p-10">
             <div className="flex flex-row justify-between">
                 <h2 className="text-5xl underline">Education</h2>
                 <Image src='/IU.png' width={50} height={50} alt="IU Symbol" />
