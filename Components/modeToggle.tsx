@@ -22,7 +22,7 @@ export function ModeToggle() {
 
   return (
     <button 
-      className="absolute top-10 right-20 hover:cursor-pointer" 
+      className="hidden md:block md:absolute top-10 right-20 hover:pointer" 
       onClick={toggleTheme}
     >
       <Sun className='h-[1.5rem] w-[1.5rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0' />

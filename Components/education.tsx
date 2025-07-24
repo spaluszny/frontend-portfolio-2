@@ -4,17 +4,18 @@ import Image from "next/image";
 
 export default function Education() {
     return (
-        <div className="border-2 dark:border-1 font-sans p-10">
+        <div className="md:border-2 md:dark:border-1 font-sans p-5 md:p-10">
             <div className="flex flex-row justify-between">
-                <h2 className="text-5xl underline">Education</h2>
-                <Image src='/IU.png' width={50} height={50} alt="IU Symbol" />
+                <h2 className="text-4xl md:text-5xl underline">Education</h2>
+                <div className="hidden md:block dark:invert"><Image src='/IU.png' width={50} height={50} alt="IU Symbol" /></div>
+                
             </div>
 
 
             <div className="p-5">
-                <div className="flex flex-row justify-between">
+                <div className="flex flex-col justify-between">
                     <p><span className="font-bold">Indiana University,</span> Bachelor of Science, Dual Degree</p>
-                    <p className="font-bold">Aug 2019 - Jul 2023</p>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm">Aug 2019 - Jul 2023</p>
                 </div>
                 <div className="p-5">
                     <p><span className="font-bold">Informatics</span> - Luddy School of Informatics, Computing and Engineering</p>

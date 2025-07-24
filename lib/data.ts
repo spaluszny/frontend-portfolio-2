@@ -15,7 +15,8 @@ export const ExperienceData: Experience[] = [
         StartDate: 'July 2023',
         EndDate: 'Present',
         Description: [
-            "Spearheaded the formation of the data analytics team and implemented a standardized request system, while centralizing 20+ reports previously scattered across multiple departments Automated recurring quality and performance reports using SQL and SSRS, cutting manual processing time by 60% while eliminating formatting errors and improving consistency across 10 hospital clients",
+            "Spearheaded the formation of the data analytics team and implemented a standardized request system, while centralizing 20+ reports previously scattered across multiple departments",
+            "Automated recurring quality and performance reports using SQL and SSRS, cutting manual processing time by 60% while eliminating formatting errors and improving consistency across 10 hospital clients",
             "Collaborated with clinical and executive stakeholders to design tailored reporting views and filters, increasing dashboard adoption rates and enabling proactive, data-informed decision-making ",
             "Created technical documentation and standardized templates for analytics workflows, reducing report creation time and cutting internal support requests by over 50%",
             "Streamline SSRS report automation, minimizing errors and boosting report reliability while supporting increased volume without added overhead"

@@ -13,11 +13,11 @@ export default function Home() {
 
             <div className="flex flex-col justify-center items-center">
                 <div className="flex flex-row  items-center gap-5 pt-40">
-                    <h1 className=" text-7xl">RESUME</h1>
+                    <h1 className="text-5xl md:text-5xl lg:text-7xl">RESUME</h1>
                     <a href="/Sarah_Paluszny_Resume.pdf"
                         download="Sarah_Paluszny_Resume.pdf"
                         target="_blank"
-                    ><FontAwesomeIcon icon={faFileArrowDown} className="text-black dark:text-white h-8 hover:text-gray-700" />
+                    ><FontAwesomeIcon icon={faFileArrowDown} className="text-black dark:text-white h-5 md:h-8 hover:text-gray-700" />
                     </a>
                 </div>
                 <hr className="my-10 h-0.5 w-1/2 bg-black"></hr>
