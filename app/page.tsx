@@ -4,7 +4,6 @@ import { faAngleDoubleDown } from "@fortawesome/free-solid-svg-icons";
 import TypeWriter from "../Components/typewriter";
 import { posts } from "#site/content"
 import { PostItem } from "@/Components/postItem";
-import { ModeToggle } from "@/Components/modeToggle";
 // import getPostMetadata from "@/utils/getPostMetadata";
 // import PostCard from "@/Components/postcard";
 export default function Home() {
@@ -12,7 +11,7 @@ export default function Home() {
   const displayPosts = posts
   return (
 
-    <div className="max-w-screen-xl mx-auto">
+    <div className="max-w-screen-xl mx-auto pb-20">
       {/* <div className="block md:hidden"><ModeToggle/></div> */}
       <div className="h-screen flex flex-col justify-center pl-10">
         <div >
@@ -24,21 +23,22 @@ export default function Home() {
       </div>
       <div className="h-screen mx-auto w-fit">
         <div className="flex flex-col items-center">
-          <h1 className="font-sans text-4xl md:text-5xl lg:text-7xl font-bold  text-center">PORTFOLIO</h1>
+          <h1 className="font-sans text-4xl md:text-5xl lg:text-7xl font-bold  text-center" id="projects">PORTFOLIO</h1>
           <hr className="my-10 h-0.5 w-1/2 bg-black"></hr>
         </div>
         {displayPosts?.length > 0 ? (
-          <div className="flex flex-row flex-wrap gap-10 justify-center pb-50">
-            {displayPosts.map(post => {
-              const { slug, title, description, picture, alt } = post;
+          <div className="flex flex-row flex-wrap gap-10 justify-center">
+            {displayPosts.map((post, index) => {
+              const { slug, title, description, picture, alt, tags } = post;
               return(<PostItem
                 slug={slug}
-
                 title={title}
                 description={description} 
                 picture={picture}
                 alt={alt}
                 key={slug}
+                index={index}
+                tags={tags}
                 />) 
             })}
           </div>

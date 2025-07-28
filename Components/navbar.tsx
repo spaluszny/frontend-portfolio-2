@@ -11,7 +11,8 @@ const Navbar = () => {
     }
     return (
         <nav className='font-serif fixed left-1/2 transform -translate-x-1/2 z-10 '>
-            <ul className='flex flex-row justify-center  p-5 mt-10 border-2 dark:border-1 bg-white dark:bg-[#0f172a] opacity-90 w-80 sm:w-125 sm:text-lg sm:space-x-10' suppressHydrationWarning>
+            <ul className='flex flex-row justify-center  p-5 mt-10 border-2 dark:border-1 bg-white dark:bg-[#0f172a] opacity-90 w-70
+             sm:w-120 sm:text-base sm:space-x-10' suppressHydrationWarning>
                 <li className={getLinkClasses("/")}>
                     <Link href="/">Portfolio</Link>
                 </li>
