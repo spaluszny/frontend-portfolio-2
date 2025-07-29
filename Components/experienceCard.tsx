@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { ExperienceData } from "@/lib/data";
+import { Tag } from "./tags";
 
 export default function ExperienceCard() {
 
@@ -31,8 +32,10 @@ export default function ExperienceCard() {
                   <li key={descIndex} className="">{description}</li>
                 ))}
               </ul>
+              <div className="flex flew-row flex-wrap gap-2 pt-5">{experience.Tags?.map((tag:any )=> (<Tag tag={tag} key={tag}/>) )} </div>
             </div>
           ))}
+          
         </div>
       ))}
     </div>

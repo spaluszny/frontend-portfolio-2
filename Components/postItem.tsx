@@ -16,7 +16,7 @@ export function PostItem({ slug, title, description, picture, alt, index, tags }
   const isImageOnBottom = index % 2 === 1; // Odd indices have image on bottom
 
   const imageSection = (
-    <div className="border-2 overflow-hidden transition-all duration-300 grayscale-0 hover:grayscale md:w-100">
+    <div className="border-2 overflow-hidden transition-all duration-300 grayscale hover:grayscale-0 md:w-100">
       <Image
         src={picture}
         alt={alt}
@@ -30,12 +30,12 @@ export function PostItem({ slug, title, description, picture, alt, index, tags }
   const contentSection = (
     <>
       <div className="pt-5 pb-5">
-        <Link href={slug} className="font-serif text-2xl transition-all duration-150 hover:underline hover:underline-offset-2">
+        <Link href={slug} className="font-serif font-light text-3xl transition-all duration-150 hover:underline hover:underline-offset-2">
           {title}
         </Link>
       </div>
       <hr className="w-30 h-0.5 bg-black" />
-      <p className="pt-5 pb-2 font-serif text-base md:text-lg">{description}</p>
+      <p className="pt-5 pb-2 font-serif text-sm md:text-base">{description}</p>
       <Link
         href={slug}
         className="hover:opacity-70 transition-all duration-150 font-sans group"

@@ -5,6 +5,7 @@ export interface Experience {
     StartDate: string;
     EndDate: string;
     Description: string[];
+    Tags?: string[];
 }
 
 
@@ -20,7 +21,8 @@ export const ExperienceData: Experience[] = [
             "Collaborated with clinical and executive stakeholders to design tailored reporting views and filters, increasing dashboard adoption rates and enabling proactive, data-informed decision-making ",
             "Created technical documentation and standardized templates for analytics workflows, reducing report creation time and cutting internal support requests by over 50%",
             "Streamline SSRS report automation, minimizing errors and boosting report reliability while supporting increased volume without added overhead"
-        ]
+        ],
+        Tags: ['SQL','SSRS','Excel','SSMS'],
     },
     {
         Company: 'Radiology of Indiana',
@@ -31,7 +33,8 @@ export const ExperienceData: Experience[] = [
             "Developed proficiency in SSRS report and dashboard creation, building foundational skills in data visualization and automated reporting systems that supported department-wide efficiency improvements",
             "Designed and automated monthly SSRS reports for 9 major hospital clients, providing enhanced visibility into quality metrics that directly supported the acquisition of 4 additional hospital contracts ",
             "Transformed manual daily reporting processes through automation, reducing processing time from 60 minutes to under 1 minute daily—a 98% time savings that freed up 20+ hours monthly for strategic analysis"
-        ]
+        ],
+        Tags: ['SQL','SSRS','Excel','SSMS'],
     },
     {
         Company: 'Jacobs School of Music',
@@ -66,23 +69,23 @@ export interface TagConfig {
   export const TAG_CATEGORIES: Record<TagCategory, { label: string; colors: string }> = {
     programming: {
       label: 'Programming',
-      colors: 'bg-blue-100 text-blue-800 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-700'
+      colors: 'bg-blue-100 text-blue-800 border-blue-200 dark:bg-blue-500/20 dark:text-blue-200 dark:border-blue-400/30'
     },
     frameworks: {
       label: 'Frameworks & Libraries',
-      colors: 'bg-green-100 text-green-800 border-green-200 dark:bg-green-900/30 dark:text-green-300 dark:border-green-700'
+      colors: 'bg-green-100 text-green-800 border-green-200 dark:bg-emerald-500/20 dark:text-emerald-200 dark:border-emerald-400/30'
     },
     data: {
       label: 'Data & Analytics',
-      colors: 'bg-purple-100 text-purple-800 border-purple-200 dark:bg-purple-900/30 dark:text-purple-300 dark:border-purple-700'
+      colors: 'bg-purple-100 text-purple-800 border-purple-200 dark:bg-violet-500/20 dark:text-violet-200 dark:border-violet-400/30'
     },
     design: {
       label: 'Design & Prototyping',
-      colors: 'bg-pink-100 text-pink-800 border-pink-200 dark:bg-pink-900/30 dark:text-pink-300 dark:border-pink-700'
+      colors: 'bg-pink-100 text-pink-800 border-pink-200 dark:bg-rose-500/20 dark:text-rose-200 dark:border-rose-400/30'
     },
     tools: {
       label: 'Tools & Workflow',
-      colors: 'bg-orange-100 text-orange-800 border-orange-200 dark:bg-orange-900/30 dark:text-orange-300 dark:border-orange-700'
+      colors: 'bg-orange-100 text-orange-800 border-orange-200 dark:bg-amber-500/20 dark:text-amber-200 dark:border-amber-400/30'
     }
   };
   
