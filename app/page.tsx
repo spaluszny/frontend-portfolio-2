@@ -22,7 +22,7 @@ export default function Home() {
         </div>
         <FontAwesomeIcon icon={faAngleDoubleDown} className="text-black dark:text-white h-5 md:h-8 lg:h-10 animate-bounce absolute bottom-10 left-1/2 transform -translate-x-1/2 z-0" />
       </div>
-      <div className="h-screen mx-auto w-fit">
+      <div className=" w-fit">
         <div className="flex flex-col items-center">
           <h1 className="font-sans text-4xl md:text-5xl lg:text-7xl font-bold  text-center" id="projects">PORTFOLIO</h1>
           <hr className="my-10 h-0.5 w-1/2 bg-black"></hr>
@@ -44,8 +44,11 @@ export default function Home() {
             })}
           </div>
         ) : (<p>Nothing to see here</p>)}
+        <div className="bg-[rgba(214,211,206,0.2)] dark:bg-[#1e293b] rounded-lg h-100 mt-15">
+          <h2 className="text-center pt-[2rem]">OTHER NOTEWORTHY PROJECTS</h2>
+        </div>
       </div>
-      <Link href="/archive" className="hover:opacity-70 transition-all duration-150 font-sans group md:text-lg">VIEW THE ARCHIVE <span className="group-hover:translate-x-1 inline-block transition-transform duration-150 pb-5">→</span></Link>
+      <Link href="/archive" className="hover:opacity-70 transition-all duration-150 font-sans group md:text-lg pt-20">VIEW THE ARCHIVE <span className="group-hover:translate-x-1 inline-block transition-transform duration-150 pb-5">→</span></Link>
     </div>
 
   );
