@@ -4,6 +4,7 @@ import { faAngleDoubleDown } from "@fortawesome/free-solid-svg-icons";
 import TypeWriter from "../Components/typewriter";
 import { posts } from "#site/content"
 import { PostItem } from "@/Components/postItem";
+import Link from "next/link";
 // import getPostMetadata from "@/utils/getPostMetadata";
 // import PostCard from "@/Components/postcard";
 export default function Home() {
@@ -44,6 +45,7 @@ export default function Home() {
           </div>
         ) : (<p>Nothing to see here</p>)}
       </div>
+      <Link href="/archive" className="hover:opacity-70 transition-all duration-150 font-sans group md:text-lg">VIEW THE ARCHIVE <span className="group-hover:translate-x-1 inline-block transition-transform duration-150 pb-5">→</span></Link>
     </div>
 
   );

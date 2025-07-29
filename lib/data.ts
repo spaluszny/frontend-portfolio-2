@@ -51,6 +51,45 @@ export const ExperienceData: Experience[] = [
 
 ];
 
+export interface Archive {
+  Year: number;
+  MadeAt: string;
+  Tags?: string[];
+  Project: string;
+  Link: string;
+}
+
+export const ArchiveData: Archive[] = [
+  {
+    Year: 2022,
+    MadeAt: 'Indiana University',
+    Tags: ['HTML', 'CSS', 'JavaScript'],
+    Project: 'v1 Sarah Paluszny Resume Portfolio',
+    Link: 'https://spaluszny.github.io/'
+  },
+  {
+    Year: 2023,
+    MadeAt: 'Indiana University',
+    Tags: ['HTML', 'CSS', 'JavaScript'],
+    Project: 'Random Number Game',
+    Link: 'https://spaluszny.github.io/RandomNumberGame/'
+  },
+  {
+    Year: 2023,
+    MadeAt: 'Indiana University',
+    Tags: ['HTML', 'CSS', 'JavaScript', 'JSON'],
+    Project: 'Camp Form',
+    Link: ''
+  },
+  {
+    Year: 2023,
+    MadeAt: 'Indiana University',
+    Tags: ['HTML', 'CSS', 'JavaScript', 'APIs'],
+    Project: 'Word Count Random Picture Generator',
+    Link: ''
+  }
+]
+
 
 export interface TagConfig {
     name: string;
