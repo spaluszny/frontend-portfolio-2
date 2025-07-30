@@ -26,7 +26,7 @@ export default function Home() {
         />
       </div>
 
-      <div className="mx-auto w-fit">
+      <div className="mx-auto">
         <div className="flex flex-col items-center">
           <h1 className="font-sans text-4xl md:text-5xl lg:text-7xl font-bold text-center" id="projects">PORTFOLIO</h1>
           <hr className="my-5 h-0.5 w-1/2 bg-black"></hr>
@@ -34,7 +34,7 @@ export default function Home() {
         </div>
 
         {featuredPosts?.length > 0 ? (
-          <div className="flex flex-row flex-wrap gap-10 justify-center">
+          <div className="flex flex-row flex-wrap gap-10 justify-evenly">
             {featuredPosts.map((post, index) => {
               const { slug, title, description, picture, alt, tags } = post;
               return (

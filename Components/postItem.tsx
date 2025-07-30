@@ -16,7 +16,7 @@ export function PostItem({ slug, title, description, picture, alt, index, tags }
   const isImageOnBottom = index % 2 === 1; // Odd indices have image on bottom
 
   const imageSection = (
-    <div className=" overflow-hidden transition-all duration-300 grayscale-0 hover:grayscale md:w-100">
+    <div className=" overflow-hidden transition-all duration-300 grayscale-0 hover:grayscale md:w-125">
       <Image
         src={picture}
         alt={alt}
@@ -48,7 +48,7 @@ export function PostItem({ slug, title, description, picture, alt, index, tags }
 
   return (
     <article>
-      <div className="w-80 md:w-100">
+      <div className="w-80 md:w-125">
         {/* Mobile: always image on top */}
         <div className="md:hidden">
           {imageSection}

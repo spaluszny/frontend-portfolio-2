@@ -1,5 +1,4 @@
-
-import Image from "next/image";
+import { Icons } from "./icons"
 
 
 export default function Education() {
@@ -7,8 +6,9 @@ export default function Education() {
         <div className="md:border-2 md:dark:border-1 font-sans p-5 md:p-10">
             <div className="flex flex-row justify-between">
                 <h2 className="text-4xl md:text-4xl underline">Education</h2>
-                <div className="hidden md:block dark:invert"><Image src='/IU.png' width={50} height={50} alt="IU Symbol" /></div>
-                
+                <div className="hidden md:block">
+                <Icons.IU className="h-15 w-15 fill-[#990000] dark:fill-white" />
+                </div>
             </div>
 
 
