@@ -13,15 +13,14 @@ const posts = defineCollection({
         title: s.string().max(99),
         tools: s.string().max(999),
         picture: s.string().max(99),
-        // pictureTop: s.string().max(99),
-        // pictureBottom: s.string().max(99),
         alt: s.string().max(99),
         website: s.string().max(999).optional(),
         description: s.string().max(999),
         date: s.isodate(),
         published: s.boolean().default(true),
         body: s.mdx(),
-        tags: s.array(s.string()).optional()
+        tags: s.array(s.string()).optional(),
+        type: s.string()
     })
     .transform(computedFields)
 })

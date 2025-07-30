@@ -6,7 +6,7 @@ export default function Education() {
     return (
         <div className="md:border-2 md:dark:border-1 font-sans p-5 md:p-10">
             <div className="flex flex-row justify-between">
-                <h2 className="text-4xl md:text-5xl underline">Education</h2>
+                <h2 className="text-4xl md:text-4xl underline">Education</h2>
                 <div className="hidden md:block dark:invert"><Image src='/IU.png' width={50} height={50} alt="IU Symbol" /></div>
                 
             </div>
