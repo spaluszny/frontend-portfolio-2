@@ -12,7 +12,7 @@ export default function Home() {
   const otherPosts = posts.filter(post => post.type === 'other');
 
   return (
-    <div className="max-w-screen-2xl mx-auto pb-30">
+    <div className="max-w-screen-xl mx-auto pb-30">
       <div className="h-screen flex flex-col justify-center pl-10 max-w-screen-xl">
         <div >
           <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold">SARAH PALUSZNY</h1>
