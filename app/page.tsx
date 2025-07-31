@@ -12,8 +12,8 @@ export default function Home() {
   const otherPosts = posts.filter(post => post.type === 'other');
 
   return (
-    <div className="max-w-screen-xl mx-auto pb-20">
-      <div className="h-screen flex flex-col justify-center pl-10">
+    <div className="max-w-screen-2xl mx-auto pb-30">
+      <div className="h-screen flex flex-col justify-center pl-10 max-w-screen-xl">
         <div >
           <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold">SARAH PALUSZNY</h1>
           <div className="text-xl font-sans md:text-3xl lg:text-5xl font-light">
@@ -36,7 +36,7 @@ export default function Home() {
         {featuredPosts?.length > 0 ? (
           <div className="flex flex-row flex-wrap gap-10 justify-evenly">
             {featuredPosts.map((post, index) => {
-              const { slug, title, description, picture, alt, tags } = post;
+              const { slug, title, description, picture, alt, tags, readMore } = post;
               return (
                 <PostItem
                   slug={slug}
@@ -47,6 +47,7 @@ export default function Home() {
                   key={slug}
                   index={index}
                   tags={tags}
+                  readMore={readMore}
                 />
               )
             })}
@@ -56,36 +57,41 @@ export default function Home() {
         )}
       </div>
 
-      <div className="bg-[rgba(214,211,206,0.2)] dark:bg-[#1e293b] rounded-lg mt-15">
-        <h2 className="text-2xl font-sans font-light text-center py-10">OTHER NOTEWORTHY PROJECTS</h2>
+      <div className="bg-[rgba(214,211,206,0.2)] dark:bg-[#1e293b] rounded-lg mt-16">
+        <h2 className="text-2xl font-sans font-light text-center py-10">
+          OTHER NOTEWORTHY PROJECTS
+        </h2>
+
         {otherPosts?.length > 0 ? (
-          <div className="flex flex-row flex-wrap gap-10 justify-center pb-[2rem]">
-            {otherPosts.map((post, index) => {
-              const { slug, title, description, picture, alt, tags, tools } = post;
+          <div className="flex flex-row flex-wrap px-10 pb-10 justify-center gap-10 md:gap-0">
+            {otherPosts.map((post) => {
+              const { slug, title, description, tags, tools, readMore, website, github } = post;
               return (
                 <PostOther
                   slug={slug}
                   title={title}
                   description={description}
-                  picture={picture}
-                  alt={alt}
                   key={slug}
-                  index={index}
                   tags={tags}
                   tools={tools}
+                  readMore={readMore}
+                  website={website}
+                  github={github}
                 />
-              )
+              );
             })}
           </div>
         ) : (
-          <p className="text-center pb-[2rem]">No other projects to show</p>
+          <p className="text-center pb-10">No other projects to show</p>
         )}
       </div>
 
+      <div className="text-right pt-10">
+        <Link href="/archive" className="hover:opacity-70 transition-all duration-150 font-sans group md:text-2xl pt-20 font-light pr-10">
+          VIEW PROJECT ARCHIVE <span className="group-hover:translate-x-1 inline-block transition-transform duration-150 pb-5">→</span>
+        </Link>
+      </div>
 
-      <Link href="/archive" className="hover:opacity-70 transition-all duration-150 font-sans group md:text-lg pt-20">
-        VIEW PROJECT ARCHIVE <span className="group-hover:translate-x-1 inline-block transition-transform duration-150 pb-5">→</span>
-      </Link>
     </div>
   );
 }

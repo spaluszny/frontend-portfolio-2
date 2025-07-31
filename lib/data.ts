@@ -161,5 +161,6 @@ export interface TagConfig {
     // Tools & Workflow
     { name: 'Git', category: 'tools' },
     { name: 'GitHub', category: 'tools' },
-    { name: 'Agile/Scrum', category: 'tools' }
+    { name: 'Agile/Scrum', category: 'tools' },
+    { name: 'VS Code', category: 'tools' }
   ];

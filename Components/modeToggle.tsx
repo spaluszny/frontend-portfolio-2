@@ -24,6 +24,7 @@ export function ModeToggle() {
     <button 
       className="absolute top-15 right-8 md:top-10 md:right-20 hover:pointer" 
       onClick={toggleTheme}
+      suppressHydrationWarning={true}
     >
       <Sun className='h-[1.5rem] w-[1.5rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 dark:hidden' />
       <Moon className='hidden h-[1.5rem] w-[1.5rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 dark:block' />
