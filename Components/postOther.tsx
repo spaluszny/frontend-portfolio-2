@@ -17,7 +17,7 @@ interface PostItemProps {
 export default function PostOther({ slug, title, description, tags, tools, readMore, website, github}: PostItemProps) {
 
   return (
-    <div className="w-80 md:w-100 2xl:w-110 px-2 md:px-10 lg:border-r lg:border-black lg:dark:border-white lg:last:border-r-0">
+    <div className="w-80 md:w-100 px-2 md:px-10 lg:border-r lg:border-black lg:dark:border-white lg:last:border-r-0">
 
       <p className="font-sans text-sm font-bold">{tools}</p>
       <div className="flex flex-row justify-between">
