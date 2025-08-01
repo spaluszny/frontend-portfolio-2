@@ -2,12 +2,14 @@ import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
 import { posts } from "#site/content";
 import PostArchive from "@/Components/postArchive";
+import { sortPosts } from "@/lib/data";
 
 export default function Home() {
-  const archivePosts = posts.filter(post => post.type === 'archive');
+  const sortedPosts = sortPosts(posts.filter(post => post.type === 'archive'))
+  const archivePosts = sortedPosts;
   
   return (
-    <div className="max-w-screen-lg mx-auto px-4">
+    <div className="max-w-screen-lg mx-auto px-4 pb-20">
       <Link href={'/#projects'}>
         <FaArrowLeft className="h-6 w-6 absolute top-15 hover:opacity-60" />
       </Link>
@@ -20,11 +22,11 @@ export default function Home() {
         <table className="table-auto w-full">
           <thead>
             <tr className="border-b ">
-              <th className="text-left py-2">YEAR</th>
-              <th className="text-left py-2">PROJECT</th>
-              <th className="text-left py-2">MADE AT</th>
-              <th className="text-left py-2">BUILT WITH</th>
-              <th className="text-left py-2">LINK</th>
+              <th className="text-left px-1 py-2">YEAR</th>
+              <th className="text-left px-1 py-2">PROJECT</th>
+              <th className="text-left hidden sm:table-cell px-1 py-2">MADE AT</th>
+              <th className="text-left hidden sm:table-cell px-1 py-2">BUILT WITH</th>
+              <th className="text-left px-1 py-2">LINK</th>
             </tr>
           </thead>
           <tbody>

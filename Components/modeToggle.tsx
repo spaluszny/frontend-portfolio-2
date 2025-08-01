@@ -22,7 +22,7 @@ export function ModeToggle() {
 
   return (
     <button 
-      className="absolute top-15 right-8 md:top-10 md:right-20 hover:pointer" 
+      className="hidden md:sticky md:top-10 md:right-20 hover:pointer" 
       onClick={toggleTheme}
       suppressHydrationWarning={true}
     >

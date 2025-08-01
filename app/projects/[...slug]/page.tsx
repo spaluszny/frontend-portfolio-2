@@ -3,6 +3,7 @@ import { notFound  } from "next/navigation";
 import Image from "next/image";
 import { FaArrowLeft } from "react-icons/fa";
 import Link from "next/link";
+import { MDXContent } from "@/Components/mdx-component";
 
 
 
@@ -44,6 +45,7 @@ export default async function PostPage({params}: PostPageProps){
         <p className="font-sans pt-5 pb-5">BY SARAH PALUSZNY</p>
         <hr></hr>
         <p className="pt-5 font-serif text-lg">{post.description}</p>
+        <MDXContent code={post.body}/>
         
         </article>
     )
