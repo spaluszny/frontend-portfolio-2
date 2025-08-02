@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { FormEvent, useState } from "react"
 
 
 export const ContactForm = () => {
+    const [isSubmitted, setSubmitted] = useState(false)
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -12,21 +14,25 @@ export const ContactForm = () => {
     const onSubmit = async(e: FormEvent) => {
         e.preventDefault()
 
-        try{
+        try {
             const res = await fetch('/api/contact', {
-                method: 'POST',
-                body: JSON.stringify({
-                    name, email, message
-                }),
-                headers: {
-                    'content-type': 'application/json',
-
-                }
+              method: 'POST',
+              body: JSON.stringify({
+                name,
+                email,
+                message,
+              }),
+              headers: {
+                'content-type': 'application/json',
+              },
             })
-        }catch(err:any){
-            console.error('err', err)
+            if (res.status === 200) {
+              setSubmitted(true)
+            }
+          } catch (err: any) {
+            console.error('Err', err)
+          }
         }
-    }
     return (
         <form className="flex flex-col gap-5 items-center"
             onSubmit={onSubmit}>
