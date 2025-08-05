@@ -36,12 +36,12 @@ export const ContactForm = () => {
   }
   return (
     isSubmitted ? (
-      <div className="font-sans font-bold text-4xl text-center h-125 flex items-center">
-       <div><TypeWriter text='Thank you for your submission!' speed={50}/></div> 
+      <div className="font-serif  text-4xl text-center h-125 flex items-center">
+       <div><TypeWriter text='Your message has been recieved!' speed={50}/></div> 
       </div>
     ) : (
 
-      <form className="flex flex-col gap-5 items-center h-125 border-2"
+      <form className="flex flex-col gap-5 items-center h-125 pt-10"
         onSubmit={onSubmit}>
         <div className="flex flex-col gap-2 w-full">
           <label className="text-left">First Name</label>
