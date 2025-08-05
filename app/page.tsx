@@ -7,7 +7,6 @@ import PostOther from "@/Components/postOther";
 import Link from "next/link";
 
 export default function Home() {
-  // Filter posts by type
   const featuredPosts = posts.filter(post => post.type === 'feature');
   const otherPosts = posts.filter(post => post.type === 'other');
 
@@ -17,7 +16,7 @@ export default function Home() {
         <div >
           <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold">SARAH PALUSZNY</h1>
           <div className="text-xl font-sans md:text-3xl lg:text-5xl font-light">
-            <TypeWriter text='ront-End Engineer' speed={150} />
+            <TypeWriter text='Front-End Engineer' speed={150} />
           </div>
         </div>
         <FontAwesomeIcon
@@ -95,16 +94,3 @@ export default function Home() {
     </div>
   );
 }
-
-
-
-
-
-
-{/* <div className="flex flex-row flex-wrap gap-10 justify-center pb-50">
-          {postMetadata.map((post, postIndex) => {
-            return (
-              <PostCard key={postIndex} post={post} />
-            )
-          })}
-        </div> */}

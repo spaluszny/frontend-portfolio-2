@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
     const { name, email, message } = body
 
     const messageData = {
-      from: "Mailgun Sandbox <postmaster@sandbox78914d951f2a4c81a7781763b909006c.mailgun.org>",
+      from: "Mailgun Sandbox <postmaster@mg.sarahpaluszny.com>",
       to: ["Sarah Paluszny <sarah.paluszny@gmail.com>"],
       subject: 'New Contact Form!',
       text: `Hello,
