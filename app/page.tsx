@@ -15,7 +15,7 @@ export default function Home() {
       <div className="h-screen flex flex-col justify-center pl-10 max-w-screen-xl">
         <div >
           <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold">SARAH PALUSZNY</h1>
-          <div className="text-xl font-sans md:text-3xl lg:text-5xl font-light">
+          <div className="text-2xl font-sans md:text-3xl lg:text-5xl font-light">
             <TypeWriter text='Front-End Engineer' speed={150} />
           </div>
         </div>

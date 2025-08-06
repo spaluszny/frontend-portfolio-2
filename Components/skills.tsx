@@ -17,7 +17,7 @@ export default function Skills() {
 
   return (
     <div className="border-0 md:border-2 md:dark:border-1">
-      <h2 className="text-4xl underline pt-10 pl-10 ">Technical Skills</h2>
+      <h2 className="text-3xl md:text-4xl underline pt-10 pl-10 ">Technical Skills</h2>
 
 
       <div className="flex flex-row gap-6 p-5 justify-center flex-wrap">

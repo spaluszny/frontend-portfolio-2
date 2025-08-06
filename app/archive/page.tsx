@@ -7,17 +7,18 @@ import { sortPosts } from "@/lib/data";
 export default function Home() {
   const sortedPosts = sortPosts(posts.filter(post => post.type === 'archive'))
   const archivePosts = sortedPosts;
-  
+
   return (
-    <div className="max-w-screen-lg mx-auto px-4 pb-20">
-      <Link href={'/#projects'}>
-        <FaArrowLeft className="h-6 w-6 absolute top-15 hover:opacity-60" />
-      </Link>
+    <div className="max-w-screen-lg mx-auto px-8 pb-20">
+
+        <Link href={'/#projects'}>
+          <FaArrowLeft className="h-6 w-6 m-3 absolute top-4 left-4  hover:opacity-60" />
+        </Link>
       <h1 className="font-bold text-5xl pt-40">THE ARCHIVE</h1>
       <p className="font-serif py-5 w-full md:w-1/2">
         A collection of not-so-perfect projects to show my progression in front-end engineering.
       </p>
-      
+
       {archivePosts?.length > 0 ? (
         <table className="table-auto w-full">
           <thead>
