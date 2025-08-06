@@ -41,7 +41,7 @@ export const ContactForm = () => {
       </div>
     ) : (
 
-      <form className="flex flex-col gap-5 items-center h-125 pt-10"
+      <form className="flex flex-col gap-5 items-center h-125 pt-10 font-serif"
         onSubmit={onSubmit}>
         <div className="flex flex-col gap-2 w-full">
           <label className="text-left">First Name</label>
@@ -64,7 +64,7 @@ export const ContactForm = () => {
             onChange={(e) => setMessage(e.target.value)}
             className="border-1 p-2 h-50"></textarea>
         </div>
-        <button type="submit" className="border-2 w-1/4 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition duration-150 p-2">Submit</button>
+        <button type="submit" className="border-2 w-50 text-xl font-bold rounded-md font-sans hover:cursor-pointer hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition duration-150 p-2">SUBMIT</button>
       </form>)
 
   )
