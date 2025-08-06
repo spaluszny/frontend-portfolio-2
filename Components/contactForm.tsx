@@ -41,30 +41,30 @@ export const ContactForm = () => {
       </div>
     ) : (
 
-      <form className="flex flex-col gap-5 items-center h-125 pt-10 font-serif"
+      <form className="flex flex-col gap-5 items-center h-125 pt-10 font-sans"
         onSubmit={onSubmit}>
         <div className="flex flex-col gap-2 w-full">
-          <label className="text-left">First Name</label>
+          <label className="text-left">Name</label>
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
-            type="text" placeholder="Sarah Paluszny" className="border-1 p-2"></input>
+            type="text" placeholder="Sarah Paluszny" className="border-2 dark:border-1 p-2"></input>
         </div>
         <div className="flex flex-col gap-2 w-full">
           <label className="text-left">Email</label>
           <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            type="email" placeholder="youremail@email.com" className="border-1  p-2"></input>
+            type="email" placeholder="youremail@email.com" className="border-2 dark:border-1  p-2"></input>
         </div>
         <div className="flex flex-col gap-2 w-full">
           <label className="text-left">Message</label>
           <textarea
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="border-1 p-2 h-50"></textarea>
+            className="border-2 dark:border-1 dark:border-white border-black p-2 h-50"></textarea>
         </div>
-        <button type="submit" className="border-2 w-50 text-xl font-bold rounded-md font-sans hover:cursor-pointer hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition duration-150 p-2">SUBMIT</button>
+        <button type="submit" className="border-2 font-bold text-xl rounded-md w-1/2 hover:cursor-pointer hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition duration-150 p-2">SUBMIT</button>
       </form>)
 
   )

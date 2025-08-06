@@ -50,8 +50,8 @@ export default function PostArchive({
       </td>
       
       {/* BUILT WITH column */}
-      <td className="py-4 pr-4">
-        <div className="hidden sm:table-cell">
+      <td className="py-4 pr-4 hidden sm:table-cell">
+        <div className="">
           {tags && tags.length > 0 && (
             <div className="flex flex-row flex-wrap gap-1 mt-2 ">
               {tags.map((tag) => (

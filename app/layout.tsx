@@ -35,7 +35,7 @@ export default function RootLayout({
       <body className={` ${inriaSans.variable} ${inriaSerif.variable} antialiased`}>
         <Providers>
           <Navbar />
-          <ModeToggle />
+          {/* <ModeToggle /> */}
           <main>
             {children}
           </main>
