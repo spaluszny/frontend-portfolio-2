@@ -1,7 +1,4 @@
 import Image from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { Icons } from "@/Components/icons";

@@ -19,9 +19,9 @@ export default async function TagPage({params}: TagPageProps){
     const title = tag.split("-").join(" ")
 
     const displayPosts = getPostsByTagSlug(posts, tag)
-    const tags = getAllTags(posts)
+    // const tags = getAllTags(posts)
 
-    const sortedTags = sortTagsByCount(tags)
+    // const sortedTags = sortTagsByCount(tags)
 
     return(
         <div className="max-w-3xl mx-auto pt-40 p-5">
