@@ -11,20 +11,19 @@ import { Tag } from "@/Components/tags";
 
 
 interface PostPageProps {
-    params: Promise<{
-        slug: string[];
-    }>;
+  params: Promise<{
+    slug: string[];
+  }>;
 }
 
 export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
-    return posts.map(post => ({ slug: post.slugAsParams.split("/") }))
+  return posts.map(post => ({ slug: post.slugAsParams.split("/") }))
 }
 
-
 export async function getPostFromParams(params: { slug: string[] }) {
-    const slug = params?.slug?.join('/')
-    const post = posts.find((post) => post.slugAsParams === slug)
-    return post;
+  const slug = params?.slug?.join('/')
+  const post = posts.find((post) => post.slugAsParams === slug)
+  return post;
 }
 
 
