@@ -1,4 +1,4 @@
-import { getAllTags, getPostsByTagSlug, sortTagsByCount } from "@/lib/data"
+import {  getPostsByTagSlug } from "@/lib/data"
 import { posts } from "#site/content"
 import PostTag from "@/Components/postTag"
 
