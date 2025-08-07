@@ -41,7 +41,7 @@ export const ContactForm = () => {
       </div>
     ) : (
 
-      <form className="flex flex-col gap-5 items-center h-125 pt-10 font-sans"
+      <form className="flex flex-col gap-5 items-center h-125 font-sans"
         onSubmit={onSubmit}>
         <div className="flex flex-col gap-2 w-full">
           <label className="text-left">Name</label>

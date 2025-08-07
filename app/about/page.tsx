@@ -13,7 +13,7 @@ export default function Home() {
         <div className="max-w-screen-2xl mx-auto">
 
             <div className="grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 lg:h-screen gap-20 ">
-                <div className="flex flex-col justify-center items-center md:pl-20 p-5 max-w-100 lg:max-w-200 mx-auto">
+                <div className="flex flex-col justify-center items-center lg:pl-20 p-5 max-w-150 md:pt-40 lg:max-w-200 mx-auto">
                     <h1 className="text-5xl md:text-7xl pt-30 md:pt-0">ABOUT ME</h1>
                     <hr className="my-10 h-0.5 w-full bg-black"></hr>
                     <p className="text-base md:text-lg font-sans">I&#39;m a data analyst transitioning into front-end development,
@@ -39,11 +39,17 @@ export default function Home() {
                             <span className="sr-only">LeetCode</span>
                         </Link>
 
-
                     </div>
                 </div>
                 <div className="relative -z-10">
-                    <Image src='/sarahpaluszny.JPG' alt='Sarah Paluszny Portrait' fill objectFit="cover" />
+                    <Image
+                        src='/sarahpaluszny.JPG'
+                        alt='Sarah Paluszny Portrait'
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        priority={true}
+                    />
                 </div>
 
             </div>

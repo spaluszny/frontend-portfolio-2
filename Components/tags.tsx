@@ -23,7 +23,7 @@ export function Tag({ tag, current, count }: TagProps) {
         href={`/tags/${slug(tag)}`} 
         className={`border rounded-full px-2 text-sm font-sans text-center transition-all duration-200 hover:scale-105 ${categoryColors}`}
       >
-        {tag}
+        {tag} {count ? `(${count})` : null}
       </Link>
     );
   }

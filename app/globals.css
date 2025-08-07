@@ -54,3 +54,13 @@ h2{
   font-family: var(--font-inria-sans);
 }
 
+
+::selection{
+  color: blue;
+  background: greenyellow;
+}
+
+.dark  ::selection{
+  color: pink;
+  background: purple;
+}
