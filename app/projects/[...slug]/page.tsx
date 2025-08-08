@@ -5,6 +5,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import Link from "next/link";
 import { MDXContent } from "@/Components/mdx-component";
 import { Tag } from "@/Components/tags";
+import BackButton from "@/Components/backButton";
 
 interface PostPageProps {
   params: Promise<{
@@ -33,9 +34,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <article className="max-w-3xl mx-auto pb-20 pt-40 pr-8 pl-8">
-      <Link href={'/#projects'}>
-        <FaArrowLeft className="h-6 w-6 absolute top-15 hover:opacity-60" />
-      </Link>
+      <BackButton />
       <Image
         src={post.picture}
         alt={post.alt}
