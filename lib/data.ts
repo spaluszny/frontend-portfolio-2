@@ -19,15 +19,15 @@ export function getAllTags(posts: Array<Post>) {
   return tags;
 }
 
-export function sortTagsByCount (tags: Record<string, number>){
-  return Object.keys(tags).sort((a,b) => tags[b]- tags[a])
+export function sortTagsByCount(tags: Record<string, number>) {
+  return Object.keys(tags).sort((a, b) => tags[b] - tags[a])
 }
 
-export function getPostsByTagSlug(posts: Array<Post>, tag: string){
-  return posts.filter(post =>{
+export function getPostsByTagSlug(posts: Array<Post>, tag: string) {
+  return posts.filter(post => {
     if (!post.tags) return false
     const slugifiedTags = post.tags.map(tag => slug(tag))
-    return(
+    return (
       slugifiedTags.includes(tag)
     )
   })
@@ -128,6 +128,7 @@ export const TAG_CATEGORIES: Record<TagCategory, { label: string; colors: string
 export const TAGS: TagConfig[] = [
   // Programming
   { name: 'HTML', category: 'programming' },
+  { name: 'MDX', category: 'programming' },
   { name: 'CSS', category: 'programming' },
   { name: 'JavaScript', category: 'programming' },
   { name: 'TypeScript', category: 'programming' },
