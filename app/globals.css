@@ -64,3 +64,13 @@ h2{
   color: pink;
   background: purple;
 }
+
+#projects{
+  scroll-margin-top: 8rem;
+}
+
+@media screen and (max-width: 640px) {
+  #projects {
+      scroll-margin-top: 2rem;
+  }
+}

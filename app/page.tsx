@@ -1,8 +1,8 @@
 'use client'
 
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDoubleDown } from "@fortawesome/free-solid-svg-icons";
+import { ChevronsDown } from "lucide-react";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faAngleDoubleDown } from "@fortawesome/free-solid-svg-icons";
 import TypeWriter from "../Components/typewriter";
 import { posts } from "#site/content"
 import { PostItem } from "@/Components/postItem";
@@ -30,11 +30,15 @@ export default function Home() {
             <TypeWriter text='Front-End Engineer' speed={150} />
           </div>
         </div>
-        <FontAwesomeIcon
+        {/* <FontAwesomeIcon
           icon={faAngleDoubleDown}
-          // onClick={scrollToTarget}
+          onClick={scrollToTarget}
           className="text-black dark:text-white h-5 md:h-8 lg:h-10 animate-bounce absolute bottom-10 left-1/2 transform -translate-x-1/2 z-0"
-        />
+        /> */}
+        <ChevronsDown
+          onClick={scrollToTarget}
+          className="text-black dark:text-white h-5 w-5 md:h-8 md:w-8 lg:h-10 lg:w-10 animate-bounce absolute bottom-10 left-1/2 transform -translate-x-1/2 z-0 cursor-pointer" />
+
       </div>
 
       <div className="mx-auto" id='projects'>

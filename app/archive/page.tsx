@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { FaArrowLeft } from "react-icons/fa";
+
 import { posts } from "#site/content";
 import PostArchive from "@/Components/postArchive";
 import { sortPosts } from "@/lib/data";
