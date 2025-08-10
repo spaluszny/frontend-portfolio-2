@@ -1,3 +1,6 @@
+'use client'
+
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDoubleDown } from "@fortawesome/free-solid-svg-icons";
 import TypeWriter from "../Components/typewriter";
@@ -10,6 +13,14 @@ export default function Home() {
   const featuredPosts = posts.filter(post => post.type === 'feature');
   const otherPosts = posts.filter(post => post.type === 'other');
 
+  const scrollToTarget = () =>{
+    const targetElement = document.getElementById('projects');
+    if (targetElement) {
+    targetElement.scrollIntoView({ behavior: 'smooth' }); // 'smooth' for animated scroll
+     }
+     }
+
+
   return (
     <div className="max-w-screen-xl mx-auto pb-30">
       <div className="h-screen flex flex-col justify-center pl-10 max-w-screen-xl">
@@ -21,11 +32,12 @@ export default function Home() {
         </div>
         <FontAwesomeIcon
           icon={faAngleDoubleDown}
+          // onClick={scrollToTarget}
           className="text-black dark:text-white h-5 md:h-8 lg:h-10 animate-bounce absolute bottom-10 left-1/2 transform -translate-x-1/2 z-0"
         />
       </div>
 
-      <div className="mx-auto">
+      <div className="mx-auto" id='projects'>
         <div className="flex flex-col items-center">
           <h1 className="font-sans text-4xl md:text-5xl lg:text-7xl font-bold text-center" >PORTFOLIO</h1>
           <hr className="my-5 h-0.5 w-1/2 bg-black"></hr>
