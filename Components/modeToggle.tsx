@@ -22,7 +22,7 @@ export function ModeToggle() {
 
   return (
     <button 
-      className=" hover:pointer" 
+      className=" hover:pointer flex" 
       onClick={toggleTheme}
       suppressHydrationWarning={true}
     >
