@@ -37,7 +37,7 @@ export default function Home() {
         /> */}
         <ChevronsDown
           onClick={scrollToTarget}
-          className="text-black dark:text-white h-5 w-5 md:h-8 md:w-8 lg:h-10 lg:w-10 animate-bounce absolute bottom-10 left-1/2 transform -translate-x-1/2 z-0 cursor-pointer" />
+          className="text-black dark:text-white h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 animate-bounce absolute bottom-10 left-1/2 transform -translate-x-1/2 z-0 cursor-pointer" />
 
       </div>
 

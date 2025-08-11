@@ -20,7 +20,7 @@ const inriaSerif = Inria_Serif({
 
 export const metadata: Metadata = {
   title: "Sarah Paluszny",
-  description: "Sarah Paluszny's Front-End Engineering Portfolio",
+  description: "Frontend Developer based in NYC specializing in React, TypeScript, and modern web applications. View my portfolio of responsive websites and interactive user experiences.",
 };
 
 export default function RootLayout({
