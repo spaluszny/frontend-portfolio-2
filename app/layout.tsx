@@ -21,6 +21,9 @@ const inriaSerif = Inria_Serif({
 export const metadata: Metadata = {
   title: "Sarah Paluszny",
   description: "Frontend Developer based in NYC specializing in React, TypeScript, and modern web applications. View my portfolio of responsive websites and interactive user experiences.",
+   icons: {
+    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🖥️</text></svg>"
+  }
 };
 
 export default function RootLayout({

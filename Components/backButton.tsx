@@ -10,7 +10,7 @@ export default function BackButton() {
     return (
         <div className='max-width-lg'>
             <button type="button" onClick={() => router.back()}>
-                <FaArrowLeft className="h-6 w-6 m-3 inherit  hover:opacity-60" />
+                <FaArrowLeft className="h-6 w-6 absolute top-8 sm:top-16 hover:opacity-60" />
             </button>
         </div>
 

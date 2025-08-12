@@ -13,6 +13,7 @@ interface PostItemProps {
   website: string;
   github?: string;
   date: string;
+  type: string;
 }
 
 export default function PostTag({ 
@@ -20,7 +21,8 @@ export default function PostTag({
   tags, 
   website, 
   github, 
-  date 
+  date,
+  type
 }: PostItemProps) {
   const year = new Date(date).getFullYear();
   
@@ -51,6 +53,13 @@ export default function PostTag({
               ))}
             </div>
           )}
+        </div>
+      </td>
+
+        {/* TYPE column */}
+     <td className="py-4 pr-4 hidden sm:table-cell">
+        <div>
+          <p className="sm:font-medium font-sm">{type}</p>
         </div>
       </td>
       
