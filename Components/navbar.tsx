@@ -4,6 +4,8 @@ import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { ModeToggle } from './modeToggle';
 
+//navbar
+
 // Custom animated hamburger component
 const AnimatedHamburger = ({ isOpen, onClick }: { isOpen: boolean; onClick: () => void }) => {
   return (

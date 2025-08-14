@@ -1,8 +1,7 @@
 import { posts } from "#site/content";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { FaArrowLeft } from "react-icons/fa";
-import Link from "next/link";
+
 import { MDXContent } from "@/Components/mdx-component";
 import { Tag } from "@/Components/tags";
 import BackButton from "@/Components/backButton";
@@ -17,7 +16,7 @@ export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
   return posts.map(post => ({ slug: post.slugAsParams.split("/") }))
 }
 
-// Remove the 'export' keyword - make this a regular function
+
 async function getPostFromParams(params: { slug: string[] }) {
   const slug = params?.slug?.join('/')
   const post = posts.find((post) => post.slugAsParams === slug)
