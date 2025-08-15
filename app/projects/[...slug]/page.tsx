@@ -42,7 +42,7 @@ export default async function PostPage({ params }: PostPageProps) {
         className="w-full h-auto object-cover border-2 border-black dark:border-white"
         priority={true} 
       />
-      <div className='pt-10'>
+      <div className='pt-10 markdown'>
         <MDXContent code={post.body} />
       </div>
       <div className="flex flex-wrap gap-2 pt-10">

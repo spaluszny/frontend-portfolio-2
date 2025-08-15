@@ -117,3 +117,11 @@ article p{
   line-height: 1.6;
   font-size: large;
 }
+
+.markdown img{
+  border: solid 2px black
+}
+
+.dark .markdown img{
+  border: solid 2px white
+}
