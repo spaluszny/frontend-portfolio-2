@@ -42,9 +42,6 @@ export default async function PostPage({ params }: PostPageProps) {
         className="w-full h-auto object-cover border-2 border-black dark:border-white"
         priority={true} 
       />
-      <h3 className="font-serif text-2xl md:text-4xl pt-10">{post.title}</h3>
-      <p className="font-sans pt-5 pb-5">BY SARAH PALUSZNY</p>
-      <hr></hr>
       <div className='pt-10'>
         <MDXContent code={post.body} />
       </div>

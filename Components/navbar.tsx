@@ -84,8 +84,8 @@ const Navbar = () => {
   return (
     <nav className='font-serif'>
       {/* Desktop Navigation */}
-      <div className='hidden sm:block sm:fixed sm:left-1/2 sm:transform sm:-translate-x-1/2 sm:z-10'>
-        <ul className='flex flex-row items-center justify-between p-5 mt-10 border-2 dark:border-1 bg-white/60 backdrop-blur-sm dark:bg-[#0f172a]/60 w-120' suppressHydrationWarning>
+      <div className='hidden sm:block sm:fixed sm:left-1/2 sm:transform sm:-translate-x-1/2 sm:z-10 list-none'>
+        <ul className='flex flex-row items-center justify-between p-5 mt-10 border-2 dark:border-1 bg-white/60 backdrop-blur-sm dark:bg-[#0f172a]/60 w-120 list-none' suppressHydrationWarning>
           <li className={getLinkClasses("/")}>
             <Link href="/">Portfolio</Link>
           </li>

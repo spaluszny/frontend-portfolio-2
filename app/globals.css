@@ -73,4 +73,47 @@ h2{
   #projects {
       scroll-margin-top: 2rem;
   }
+
+  article p{
+    font-size: medium;
+  }
+}
+
+/* Styling for project article */
+
+article ul {
+  list-style-type: disc;
+  padding-left: 1.25rem;
+}
+
+article ol {
+  list-style-type: decimal;  
+  padding-left: 1.25rem;
+}
+
+article li {
+  margin: 0.25rem 0;
+}
+
+article a:hover{
+  opacity: 80%;
+}
+
+article h1{
+  font-size: xx-large;
+  font-family: var(--font-inria-serif);
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+article h2{
+  font-size: large;
+  font-family: var(--font-inria-sans);
+}
+
+article p{
+  font-family: var(--font-inria-serif);
+  line-height: 1.6;
+  font-size: large;
 }
