@@ -112,10 +112,24 @@ article h2{
   font-family: var(--font-inria-sans);
 }
 
+article h3{
+  font-size: x-large;
+  font-family: var(--font-inria-serif);
+  /* font-weight: bold; */
+  padding-bottom: .3rem;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  /* text-transform: uppercase; */
+ 
+  /* font-style: italic; */
+}
+
 article p{
   font-family: var(--font-inria-serif);
   line-height: 1.6;
   font-size: large;
+  font-weight: light;
 }
 
 .markdown img{
