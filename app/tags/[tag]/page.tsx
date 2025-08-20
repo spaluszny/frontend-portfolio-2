@@ -1,4 +1,4 @@
-import { getPostsByTagSlug } from "@/lib/data"
+import { getPostsByTagSlug, sortPosts } from "@/lib/data"
 import { posts } from "#site/content"
 import PostTag from "@/Components/postTag"
 import BackButton from "@/Components/backButton"
@@ -20,19 +20,20 @@ export default async function TagPage({ params }: TagPageProps) {
   const title = tag.split("-").join(" ")
 
   const displayPosts = getPostsByTagSlug(posts, tag)
+  const sortedPosts = sortPosts(displayPosts)
   // const tags = getAllTags(posts)
 
   // const sortedTags = sortTagsByCount(tags)
 
   return (
-    <div className="max-w-4xl mx-auto pt-40 p-5">
+    <div className="max-w-4xl mx-auto pt-40">
       <BackButton />
       <h1 className="font-bold text-5xl uppercase pb-5">#{title}</h1>
 
       {/* <p className="font-serif py-5 w-full md:w-1/2">
         A collection of {title} projects to show my progression in front-end engineering.
       </p> */}
-      {displayPosts?.length > 0 ? (
+      {sortedPosts?.length > 0 ? (
         <table className="table-auto w-full">
           <thead>
             <tr className="border-b ">
@@ -44,7 +45,7 @@ export default async function TagPage({ params }: TagPageProps) {
             </tr>
           </thead>
           <tbody>
-            {displayPosts.map((post) => {
+            {sortedPosts.map((post) => {
               const { slug, title, description, tags, readMore, date, tools, website, github, type } = post;
               return (
                 <PostTag

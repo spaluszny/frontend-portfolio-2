@@ -1,6 +1,6 @@
 export const siteConfig = {
     name: "Sarah Paluszny Frontend Engineer Portfolio",
-    url: "https://test.com",
+    url: "https://www.sarahpaluszny.com",
     description: "Portfolio site showing all of Sarah Paluszny's Frontend Engineering Projects",
     author: "Sarah Paluszny",
     links: {

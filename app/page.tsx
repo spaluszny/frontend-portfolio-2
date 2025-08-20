@@ -51,7 +51,7 @@ export default function Home() {
         {featuredPosts?.length > 0 ? (
           <div className="flex flex-row flex-wrap gap-10 justify-evenly">
             {featuredPosts.map((post, index) => {
-              const { slug, title, description, picture, alt, tags, readMore } = post;
+              const { slug, title, description, picture, alt, tags, readMore, github, website } = post;
               return (
                 <PostItem
                   slug={slug}
@@ -63,6 +63,8 @@ export default function Home() {
                   index={index}
                   tags={tags}
                   readMore={readMore}
+                  github={github}
+                  website={website}
                 />
               )
             })}
