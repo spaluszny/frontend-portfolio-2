@@ -77,7 +77,7 @@ const Navbar = () => {
 
   const getLinkClasses = (path: string) => {
     return `hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-[#0f172a] w-fit p-1 transition-colors duration-200 ${
-      pathname === path ? "underline underline-offset-8 hover:no-underline" : ""
+      pathname === path ? "underline underline-offset-8 decoration-black dark:decoration-white transition-colors duration-200" : ""
     }`;
   };
 
@@ -86,16 +86,16 @@ const Navbar = () => {
       {/* Desktop Navigation */}
       <div className='hidden sm:block sm:fixed sm:left-1/2 sm:transform sm:-translate-x-1/2 sm:z-10 list-none'>
         <ul className='flex flex-row items-center justify-between p-5 mt-10 border-2 dark:border-1 bg-white/60 backdrop-blur-sm dark:bg-[#0f172a]/60 w-120 list-none' suppressHydrationWarning>
-          <li className={getLinkClasses("/")}>
+          <li className={`${getLinkClasses("/")} cursor-pointer`}>
             <Link href="/">Portfolio</Link>
           </li>
-          <li className={getLinkClasses("/resume")}>
+          <li className={`${getLinkClasses("/resume")} cursor-pointer`}>
             <Link href="/resume">Resume</Link>
           </li>
-          <li className={getLinkClasses("/about")}>
+          <li className={`${getLinkClasses("/about")} cursor-pointer`}>
             <Link href="/about">About</Link>
           </li>
-          <li className={getLinkClasses("/contact")}>
+          <li className={`${getLinkClasses("/contact")} cursor-pointer`}>
             <Link href="/contact">Contact</Link>
           </li>
           <li><ModeToggle /></li>
