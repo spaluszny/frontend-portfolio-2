@@ -15,6 +15,7 @@ export default async function TagsPage() {
     const sortedTags = sortTagsByCount(tags)
 
     return (
+        
         <div className="max-w-lg mx-auto ">
             <h1 className="font-sans font-bold text-center text-5xl pt-40">TAGS</h1>
             <hr className="h-0.5 m-5"></hr>
