@@ -11,7 +11,7 @@ const AnimatedHamburger = ({ isOpen, onClick }: { isOpen: boolean; onClick: () =
   return (
     <button
       onClick={onClick}
-      className="fixed sm:hidden right-4 top-4 cursor-pointer z-20 p-3 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+      className="fixed sm:hidden right-4 top-4 cursor-pointer z-20 p-3 rounded-md bg-white/60 backdrop-blur-sm dark:bg-[#0f172a]/60 transition-colors"
       aria-label={isOpen ? "Close menu" : "Open menu"}
     >
       <div className="w-8 h-8 relative flex flex-col justify-center items-center">
@@ -87,16 +87,16 @@ const Navbar = () => {
       <div className='hidden sm:block sm:fixed sm:left-1/2 sm:transform sm:-translate-x-1/2 sm:z-10 list-none'>
         <ul className='flex flex-row items-center justify-between p-5 mt-10 border-2 dark:border-1 bg-white/60 backdrop-blur-sm dark:bg-[#0f172a]/60 w-120 list-none' suppressHydrationWarning>
           <li className={`${getLinkClasses("/")} cursor-pointer`}>
-            <Link href="/">Portfolio</Link>
+            <Link href="/" className="p-2" >Portfolio</Link>
           </li>
           <li className={`${getLinkClasses("/resume")} cursor-pointer`}>
-            <Link href="/resume">Resume</Link>
+            <Link href="/resume" className="p-2">Resume</Link>
           </li>
           <li className={`${getLinkClasses("/about")} cursor-pointer`}>
-            <Link href="/about">About</Link>
+            <Link href="/about" className="p-2">About</Link>
           </li>
           <li className={`${getLinkClasses("/contact")} cursor-pointer`}>
-            <Link href="/contact">Contact</Link>
+            <Link href="/contact" className="p-2">Contact</Link>
           </li>
           <li><ModeToggle /></li>
         </ul>
