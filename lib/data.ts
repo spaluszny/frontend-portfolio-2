@@ -147,6 +147,7 @@ export const TAGS: TagConfig[] = [
   { name: 'Excel', category: 'data' },
   { name: 'REST APIs', category: 'data' },
   { name: 'JSON', category: 'data' },
+  { name: 'PostgreSQL', category: 'data'},
 
   // Design & Prototyping
   { name: 'Figma', category: 'design' },
