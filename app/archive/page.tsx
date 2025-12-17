@@ -29,7 +29,7 @@ export default function Home() {
           </thead>
           <tbody>
             {archivePosts.map((post) => {
-              const { slug, title, description, tags, readMore, date, tools, website, github } = post;
+              const { slug, title, description, tags, readMore, date, tools, website, github, published } = post;
               return (
                 <PostArchive
                   key={slug}
@@ -42,6 +42,7 @@ export default function Home() {
                   tools={tools}
                   website={website}
                   github={github}
+                  published={published}
                 />
               );
             })}

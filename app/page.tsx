@@ -27,7 +27,7 @@ export default function Home() {
         <div >
           <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold">SARAH PALUSZNY</h1>
           <div className="text-2xl font-sans md:text-3xl lg:text-5xl font-light">
-            <TypeWriter text='Front-End Engineer' speed={150} />
+            <TypeWriter text='Front-End Developer' speed={150} />
           </div>
         </div>
         {/* <FontAwesomeIcon

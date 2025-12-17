@@ -21,7 +21,7 @@ export function PostItem({ slug, title, description, picture, alt, index, tags, 
   const isImageOnBottom = index % 2 === 1; // Odd indices have image on bottom
 
   const imageSection = (
-    <div className=" overflow-hidden transition-all duration-300  md:w-125">
+    <div className=" overflow-hidden transition-all duration-300 border-2 dark:border-0  md:w-125">
       <Image
         src={picture}
         alt={alt}

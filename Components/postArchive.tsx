@@ -13,6 +13,7 @@ interface PostItemProps {
   website: string;
   github?: string;
   date: string;
+  published?: boolean;
 }
 
 export default function PostArchive({ 
@@ -24,11 +25,14 @@ export default function PostArchive({
   readMore, 
   website, 
   github, 
-  date 
+  date,
+  published
 }: PostItemProps) {
+  if (!published) return null;
   const year = new Date(date).getFullYear();
-  
+
   return (
+
     <tr className="border-b hover:bg-[rgba(214,211,206,0.2)] hover:dark:bg-[#1e293b] font-sans">
       {/* YEAR column */}
       <td className="py-4 px-2">
