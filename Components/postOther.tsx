@@ -46,8 +46,6 @@ export default function PostOther({ slug, title, description, tags, tools, readM
 
       <hr className="md:hidden"></hr>
 
-
-
     </div>
   )
 }
