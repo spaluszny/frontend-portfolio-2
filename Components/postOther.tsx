@@ -21,14 +21,14 @@ export default function PostOther({ slug, title, description, tags, tools, readM
 
       <p className="font-sans text-sm font-bold">{tools}</p>
       <div className="flex flex-row justify-between">
-        <Link href={website} className="font-serif text-2xl transform transition duration-150 hover:underline hover:underline-offset-2">{title}</Link>
+        <Link href={website} className="font-serif text-xl md:text-2xl transform transition duration-150 hover:underline hover:underline-offset-2">{title}</Link>
         <div className="flex flex-row gap-5">
           <Link href={website} target="_blank" className="transform transition duration-150 hover:scale-110"><FaUpRightFromSquare className="h-5" /></Link>
           {github && (<Link href={github} target="_blank" className="transform transition duration-150 hover:scale-110"><Icons.gitHub className="h-5" /></Link>)}
         </div>
       </div>
 
-      <p className="font-serif pt-5">{description}</p>
+      <p className="font-serif pt-5 text-sm md:text-base">{description}</p>
 
 
       {readMore && (

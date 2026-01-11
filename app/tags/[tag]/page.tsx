@@ -26,7 +26,7 @@ export default async function TagPage({ params }: TagPageProps) {
   // const sortedTags = sortTagsByCount(tags)
 
   return (
-    <div className="max-w-4xl mx-auto pt-40">
+    <div className="max-w-4xl mx-auto pt-40 p-5">
       <BackButton />
       <h1 className="font-bold text-5xl uppercase pb-5">#{title}</h1>
 
@@ -46,7 +46,7 @@ export default async function TagPage({ params }: TagPageProps) {
           </thead>
           <tbody>
             {sortedPosts.map((post) => {
-              const { slug, title, description, tags, readMore, date, tools, website, github, type } = post;
+              const { slug, title, description, tags, readMore, date, tools, website, github, type, published } = post;
               return (
                 <PostTag
                   key={slug}
@@ -60,6 +60,7 @@ export default async function TagPage({ params }: TagPageProps) {
                   website={website}
                   github={github}
                   type={type}
+                  published={published}
                 />
               );
             })}

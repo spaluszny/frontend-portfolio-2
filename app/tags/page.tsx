@@ -16,7 +16,7 @@ export default async function TagsPage() {
 
     return (
         
-        <div className="max-w-lg mx-auto ">
+        <div className="max-w-lg mx-auto p-5">
             <h1 className="font-sans font-bold text-center text-5xl pt-40">TAGS</h1>
             <hr className="h-0.5 m-5"></hr>
             <div className="flex flex-wrap gap-2">

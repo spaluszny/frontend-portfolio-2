@@ -13,49 +13,38 @@ interface PostItemProps {
   index: number; // Add index prop
   tags?: Array<string>;
   readMore: boolean;
-    website: string;
+  website: string;
   github?: string;
 }
 
-export function PostItem({ slug, title, description, picture, alt, index, tags, readMore, github, website}: PostItemProps) {
+export function PostItem({ slug, title, description, picture, alt, index, tags, readMore, github, website }: PostItemProps) {
   const isImageOnBottom = index % 2 === 1; // Odd indices have image on bottom
 
   const imageSection = (
     <div className=" overflow-hidden transition-all duration-300 border-2 dark:border-0  md:w-125">
-      <Image
-        src={picture}
-        alt={alt}
-        width={400}
-        height={300}
-        className="w-full h-auto object-cover"
-      />
+      <Link href={website} target="_blank">
+        <Image
+          src={picture}
+          alt={alt}
+          width={400}
+          height={300}
+          className="w-full h-auto object-cover hover:grayscale-100 transition duration-150"
+        />
+      </Link>
     </div>
   );
 
   const contentSection = (
     <>
       <div className="pt-5 pb-5">
-        {readMore && (
-          <div className="flex flex-row justify-between items-baseline">
-          <Link href={slug} className="font-serif font-light text-3xl transition-all duration-150 hover:underline hover:underline-offset-2">
-            {title}
-          </Link>
+       
+          <div className="flex flex-row justify-between items-center gap-5">
+            <p className="font-serif font-light text-xl md:text-3xl">{title}</p>
+            <div className="flex flex-row gap-5">
+              <Link href={website} target="_blank" className="transform transition duration-150 hover:scale-110"><FaUpRightFromSquare className="h-5" /></Link>
+              {github && (<Link href={github} target="_blank" className="transform transition duration-150 hover:scale-110"><Icons.gitHub className="h-5" /></Link>)}
+            </div></div>
 
-          <div className="flex flex-row gap-5">
-          <Link href={website} target="_blank" className="transform transition duration-150 hover:scale-110"><FaUpRightFromSquare className="h-5" /></Link>
-          {github && (<Link href={github} target="_blank" className="transform transition duration-150 hover:scale-110"><Icons.gitHub className="h-5" /></Link>)}
-        </div>
-          </div>
-        )}
-        {!readMore && (
-          <div className="flex flex-row justify-between items-center">
-          <p className="font-serif font-light text-3xl">{title}</p>
-          <div className="flex flex-row gap-5">
-          <Link href={website} target="_blank" className="transform transition duration-150 hover:scale-110"><FaUpRightFromSquare className="h-5" /></Link>
-          {github && (<Link href={github} target="_blank" className="transform transition duration-150 hover:scale-110"><Icons.gitHub className="h-5" /></Link>)}
-        </div></div>
-
-        )}
       </div>
       <hr className="w-30 h-0.5 bg-black" />
       <p className="pt-5 pb-5 font-serif text-sm md:text-base">{description}</p>

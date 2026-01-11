@@ -5,7 +5,7 @@ import { ChevronsDown } from "lucide-react";
 // import { faAngleDoubleDown } from "@fortawesome/free-solid-svg-icons";
 import TypeWriter from "../Components/typewriter";
 import { posts } from "#site/content"
-import { PostItem } from "@/Components/postItem";
+import { PostItem } from "@/Components/postFeatured";
 import PostOther from "@/Components/postOther";
 import Link from "next/link";
 

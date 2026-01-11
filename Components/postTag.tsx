@@ -14,6 +14,7 @@ interface PostItemProps {
   github?: string;
   date: string;
   type: string;
+  published: boolean;
 }
 
 export default function PostTag({ 
@@ -22,8 +23,10 @@ export default function PostTag({
   website, 
   github, 
   date,
-  type
+  type,
+  published
 }: PostItemProps) {
+  if (!published) return null;
   const year = new Date(date).getFullYear();
   
   return (
