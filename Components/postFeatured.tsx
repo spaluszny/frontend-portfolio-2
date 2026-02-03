@@ -10,7 +10,7 @@ interface PostItemProps {
   description: string;
   picture: string;
   alt: string;
-  index: number; // Add index prop
+  index: number;
   tags?: Array<string>;
   readMore: boolean;
   website: string;
@@ -18,10 +18,19 @@ interface PostItemProps {
 }
 
 export function PostItem({ slug, title, description, picture, alt, index, tags, readMore, github, website }: PostItemProps) {
-  const isImageOnBottom = index % 2 === 1; // Odd indices have image on bottom
+  const isImageOnBottom = index % 2 === 1; 
+
+  const border = () => {
+    if (picture == '/ungoogleit.png' || picture == '/ungoogleit2.png') {
+      return 'border-0'
+    }else {
+      return 'border-2'
+    }
+  }
+
 
   const imageSection = (
-    <div className=" overflow-hidden transition-all duration-300 border-2 dark:border-0  md:w-125">
+    <div className={`overflow-hidden transition-all duration-300 ${border()} dark:border-0  md:w-125`}>
       <Link href={website} target="_blank">
         <Image
           src={picture}
@@ -37,13 +46,13 @@ export function PostItem({ slug, title, description, picture, alt, index, tags, 
   const contentSection = (
     <>
       <div className="pt-5 pb-5">
-       
-          <div className="flex flex-row justify-between items-center gap-5">
-            <p className="font-serif font-light text-xl md:text-3xl">{title}</p>
-            <div className="flex flex-row gap-5">
-              <Link href={website} target="_blank" className="transform transition duration-150 hover:scale-110"><FaUpRightFromSquare className="h-5" /></Link>
-              {github && (<Link href={github} target="_blank" className="transform transition duration-150 hover:scale-110"><Icons.gitHub className="h-5" /></Link>)}
-            </div></div>
+
+        <div className="flex flex-row justify-between items-center gap-5">
+          <p className="font-serif font-light text-xl md:text-3xl">{title}</p>
+          <div className="flex flex-row gap-5">
+            <Link href={website} target="_blank" className="transform transition duration-150 hover:scale-110"><FaUpRightFromSquare className="h-5" /></Link>
+            {github && (<Link href={github} target="_blank" className="transform transition duration-150 hover:scale-110"><Icons.gitHub className="h-5" /></Link>)}
+          </div></div>
 
       </div>
       <hr className="w-30 h-0.5 bg-black" />

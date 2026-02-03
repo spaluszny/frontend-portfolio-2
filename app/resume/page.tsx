@@ -25,9 +25,11 @@ export default function Home() {
             </div>
             <div className="flex flex-col gap-5 pb-20">
 
-                <Education />
-                <Experience />
                 <Skills />
+
+                <Education />
+
+                <Experience />
 
 
             </div>

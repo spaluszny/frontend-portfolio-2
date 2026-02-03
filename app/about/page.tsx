@@ -24,15 +24,15 @@ export default function Home() {
                         {/* <Link href={'https://www.linkedin.com/in/sarah-paluszny/'}> <FontAwesomeIcon icon={faLinkedin} className="h-8 hover:text-gray-600 transform transition duration-300 hover:scale-110" /> </Link>
                         <Link href={'https://github.com/spaluszny'}> <FontAwesomeIcon icon={faGithub} className="h-8 hover:text-gray-600 transform transition duration-300 hover:scale-110" /> </Link> */}
                         <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
-                            <Icons.gitHub className="h-5 md:h-8 hover:text-gray-600 transform transition duration-300 hover:scale-110" />
+                            <Icons.gitHub className="h-5 md:h-8  transform transition duration-300 hover:scale-110" />
                             <span className="sr-only">LinkedIn</span>
                         </Link>
                         <Link href={siteConfig.links.linkedIn} target="_blank" rel="noreferrer">
-                            <Icons.linkedin className="h-5 md:h-8 hover:text-gray-600 transform transition duration-300 hover:scale-110" />
+                            <Icons.linkedin className="h-5 md:h-8  transform transition duration-300 hover:scale-110" />
                             <span className="sr-only">GitHub</span>
                         </Link>
                         <Link href={siteConfig.links.leetCode} target="_blank" rel="noreferrer">
-                            <Icons.leetCode className="h-5 md:h-8 hover:text-gray-600 transform transition duration-300 hover:scale-110" />
+                            <Icons.leetCode className="h-5 md:h-8  transform transition duration-300 hover:scale-110" />
                             <span className="sr-only">LeetCode</span>
                         </Link>
 

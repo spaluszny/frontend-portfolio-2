@@ -82,7 +82,7 @@ export default function Home() {
         {otherPosts?.length > 0 ? (
           <div className="flex flex-row flex-wrap px-10 pb-10 justify-center gap-10 md:gap-0">
             {otherPosts.map((post) => {
-              const { slug, title, description, tags, tools, readMore, website, github } = post;
+              const { slug, title, description, tags, tools, readMore, website, github, published } = post;
               return (
                 <PostOther
                   slug={slug}
@@ -94,6 +94,7 @@ export default function Home() {
                   readMore={readMore}
                   website={website}
                   github={github}
+                  published={published}
                 />
               );
             })}
