@@ -48,7 +48,7 @@ export function PostItem({ slug, title, description, picture, alt, index, tags, 
       <div className="pt-5 pb-5">
 
         <div className="flex flex-row justify-between items-center gap-5">
-          <p className="font-serif font-light text-xl md:text-3xl">{title}</p>
+          <p className="font-serif text-xl md:text-3xl">{title}</p>
           <div className="flex flex-row gap-5">
             <Link href={website} target="_blank" className="transform transition duration-150 hover:scale-110"><FaUpRightFromSquare className="h-5" /></Link>
             {github && (<Link href={github} target="_blank" className="transform transition duration-150 hover:scale-110"><Icons.gitHub className="h-5" /></Link>)}
@@ -56,7 +56,7 @@ export function PostItem({ slug, title, description, picture, alt, index, tags, 
 
       </div>
       <hr className="w-30 h-0.5 bg-black" />
-      <p className="pt-5 pb-5 font-serif text-sm md:text-base">{description}</p>
+      <p className="pt-5 pb-5 font-sans text-sm md:text-base">{description}</p>
       {readMore && (
         <Link
           href={slug}

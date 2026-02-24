@@ -30,7 +30,7 @@ export default function PostOther({ slug, title, description, tags, tools, readM
           </div>
         </div>
 
-        <p className="font-serif pt-5 text-sm md:text-base">{description}</p>
+        <p className="pt-5 text-sm md:text-base">{description}</p>
 
 
         {readMore && (
