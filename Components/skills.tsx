@@ -35,10 +35,13 @@ export default function Skills() {
                   <Tag tag={tag.name} key={tag.name} />
                 ))}
               </div>
+              
             </div>
+
           );
         })}
       </div>
+      <p className="text-right p-5 text-xs">*Click on the tags to see associated projects</p>
     </div>
   );
 }
