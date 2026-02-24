@@ -1,6 +1,7 @@
 'use client'
 
 import { ChevronsDown } from "lucide-react";
+import { motion } from "framer-motion";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faAngleDoubleDown } from "@fortawesome/free-solid-svg-icons";
 import TypeWriter from "../Components/typewriter";
@@ -8,27 +9,44 @@ import { posts } from "#site/content"
 import { PostItem } from "@/Components/postFeatured";
 import PostOther from "@/Components/postOther";
 import Link from "next/link";
+import { SCRIBBLE_PATH } from "@/lib/path";
 
 export default function Home() {
   const featuredPosts = posts.filter(post => post.type === 'feature');
   const otherPosts = posts.filter(post => post.type === 'other');
 
-  const scrollToTarget = () =>{
+  const scrollToTarget = () => {
     const targetElement = document.getElementById('projects');
     if (targetElement) {
-    targetElement.scrollIntoView({ behavior: 'smooth' }); // 'smooth' for animated scroll
-     }
-     }
+      targetElement.scrollIntoView({ behavior: 'smooth' }); // 'smooth' for animated scroll
+    }
+  }
 
 
   return (
     <div className="max-w-screen-xl mx-auto pb-30">
       <div className="h-screen flex flex-col justify-center pl-10 max-w-screen-xl">
-        <div >
-          <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold">SARAH PALUSZNY</h1>
-          <div className="text-2xl font-sans md:text-3xl lg:text-5xl font-light">
-            <TypeWriter text='Front-End Developer' speed={150} />
+        <div className="flex flex-row items-center">
+          <div >
+            <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold">SARAH PALUSZNY</h1>
+            <div className="text-2xl font-sans md:text-3xl lg:text-5xl font-light">
+              {/* <TypeWriter text='Front-End Developer' speed={150} /> */}
+              <p>Front-End Developer</p>
+            </div>
           </div>
+          {/* <img src='/scribble.svg' width={400}></img> */}
+
+            <svg viewBox="0 0 9115 7892" fill="none">
+              <motion.path
+                d={SCRIBBLE_PATH}
+                stroke="oklch(90.2% 0.063 306.703)"
+                strokeWidth={200}
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 3, ease: "easeInOut" }}
+              />
+            </svg>
+
         </div>
         {/* <FontAwesomeIcon
           icon={faAngleDoubleDown}
