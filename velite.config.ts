@@ -1,8 +1,11 @@
-import { defineConfig, defineCollection, s} from "velite"
+import rehypeSlug from 'rehype-slug';
+import rehypePrettyCode from 'rehype-pretty-code';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import { defineConfig, defineCollection, s } from "velite";
 
-const computedFields = <T extends { slug: string}> (data: T) =>({
+const computedFields = <T extends { slug: string }>(data: T) => ({
     ...data,
-    slugAsParams: data.slug.split("/").slice(1).join("/") ,
+    slugAsParams: data.slug.split("/").slice(1).join("/"),
 })
 
 const posts = defineCollection({
@@ -24,7 +27,7 @@ const posts = defineCollection({
         readMore: s.boolean(),
         github: s.string().max(999).optional()
     })
-    .transform(computedFields)
+        .transform(computedFields)
 })
 
 export default defineConfig({
@@ -35,9 +38,22 @@ export default defineConfig({
         base: "/static/",
         name: "[name]-[hash:6].[ext]",
         clean: true
-    }, collections: {posts},
+    }, collections: { posts },
     mdx: {
-        rehypePlugins: [],
+        rehypePlugins: [
+            rehypeSlug,
+            [rehypePrettyCode, { theme: "github-dark" }],
+            [
+                rehypeAutolinkHeadings,
+                {
+                    behavior: "wrap",
+                    properties: {
+                        className: ["subheading-anchor"],
+                        ariaLabel: "Link to section",
+                    },
+                },
+            ],
+        ],
         remarkPlugins: [],
-    }
+    },
 })

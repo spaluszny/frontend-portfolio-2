@@ -4,6 +4,8 @@ import { faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
 import Education from "@/Components/education";
 import Experience from "@/Components/experience";
 import Skills from "@/Components/skills";
+import AnimatedArticle from "@/Components/animateArticle";
+import FadeUp from "@/Components/fadeUp";
 
 
 export default function Home() {
@@ -23,16 +25,18 @@ export default function Home() {
                 <hr className="my-5 sm:my-10 h-0.5 w-75 sm:w-150 bg-black"></hr>
 
             </div>
-            <div className="flex flex-col gap-5 pb-20">
+            <AnimatedArticle>
+                <div className="flex flex-col gap-5 pb-20">
 
-                <Skills />
+                    <FadeUp><Skills /></FadeUp>
 
-                <Education />
+                    <FadeUp><Education /></FadeUp>
 
-                <Experience />
+                    <FadeUp><Experience /></FadeUp>
 
-            </div>
 
+                </div>
+            </AnimatedArticle>
         </div>
 
     );

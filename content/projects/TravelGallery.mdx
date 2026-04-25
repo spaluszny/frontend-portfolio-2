@@ -1,7 +1,7 @@
 ---
 title: "Travel Photography Gallery with Google Photos API"
 tools: "Created using React, Next.js, and Tailwind"
-description: "A full-stack travel photo gallery that showcases photos from my travels to family and friends. The application features a custom admin dashboard where I select photos directly from Google Photos using their Picker API, add location metadata, and upload them to AWS S3."
+description: "A full-stack travel photo gallery that showcases photos from my travels to family and friends. The application features a custom admin dashboard where I select photos directly from Google Photos using their Picker API, add location metadata, and upload them directly to my site."
 picture: /travel-gallery.png
 alt: Travel Photography Gallery
 tags: ['React','Next.js', 'Tailwind','TypeScript','Figma', 'REST APIs', 'PostgreSQL','GitHub', 'VS Code']
@@ -9,7 +9,7 @@ website: http://travel.sarahpaluszny.com
 date: 2025-12-01
 published: true
 type: feature
-readMore: false
+readMore: true
 github: https://github.com/spaluszny/travel-gallery
 
 ---
@@ -19,32 +19,70 @@ github: https://github.com/spaluszny/travel-gallery
 <p className='drop-cap'>Recently I embarked on a journey to Nepal to do the Manaslu Trek. It was a wonderful adventure filled with angelic mountains, bewhiching waterfalls, magnificent wild life. As someone who travels a lot I'm always being asked by my family and friends to send pictures and I've always struggled picking the top ones to send to each individual. I decided to make a travel photo gallery to solve this issue.</p>
 <br/>
 
-### Overview
-On the user frontend I wanted it to clean and easy to use. Photos broken out by continents and an image lightbox to see more information about each photo. Simple concept, but I knew if I didn't have a light cms integration for photo posting, I would never update the website. 
+### The Problem
+While traveling I take hundreds of photos, some good, most bad, I wanted a place where the good photos to live that were easy to send to friends and family. Typically I would send 10 photos handpicked by me whenever asked, this was getting redundant everytime I went on a trip, and no matter how many I sent to my family they never seem satisfied. I decided making a website where all my good photos lived would be the perfect solution. 
 <br/>
-**Goal: Create a photo gallery website with easy to use image upload**
+When asked for photos, I could simply send a link that would open to my most recent photos. The user could then look at other photos based on continents to see where else I've been. When clicked the photos would have some information, such as location, date, and a caption. I could also implement a newletter that would notify family when I posted new photos.
+<br/>
+The biggest issue would updating the website. I knew if I didn't implement this into the website itself, I would never update it. Thus leading me to my goal: **Create a photo gallery website with easy to use image upload and metadata.**
 
 <br/>
-### The Problem
+### Design Approach
+First, I started with brainstorming features for my website. I came up with the following list.
 <br/>
 **FEATURES**
-* User dashboard to easily upload photos
-* Photos displayed
-* Photo lightbox
-* Join the newletter
+* Easy way to upload photos
+* Photos filtered by location, displayed in way for easy browsing
+* Photo information such as date, location, and a description
+* Notification system that sends a user an email when new photos are uploaded
 <br/>
-For the design, I decided to go with a sidebar that contained all site navigation and on the left a masonry grid of images that are filtered by continent. 
+I then opened figma to make a design that was suitable for these options. For the design, I decided to go with a sidebar that contained all site navigation and on the left a masonry grid of images that are filtered by continent. When you click on a photo a lightbox would appear with photo metadata including date, location, and a description. I then added a 'join the newsletter' at the bottom. Where a user could input their email, and receive notifications when I upload new photos. This design checked most of my initial features I wanted. Once I felt comfortable with the design, I started to code.
 <br/>
-### Technical Approach
-Since all of my travel photos already lived on google photos, I wanted to find a way to sync them to my website. When browsing my google photos from with developer tools, I found that with public google photos links you can scrap the html to find the image previews.  
 
-I was then able to write a react component that took the public google photos url and return the associated images from that folder. I could easily add photos to my public photos album and it would instantly show up on my site. 
+### Technical Approach
+
+**Image Upload**
+
+Since all of my travel photos already lived on google photos, I wanted to find a way to sync them to my website. When browsing my google photos with developer tools, I found that with public google photos links you can scrap the html to find the image previews. I was then able to write a react component that took the public google photos url and return the associated images from that folder. I could easily add photos to my public photos album and it would instantly show up on my site. 
 <br/>
+```js showLineNumbers
+export default async function GooglePhotosAlbumFetcher({ URL }: { URL: string }) {
+  const response = await axios.get(URL)
+  
+  const regex = /\["(https:\/\/lh3\.googleusercontent\.com\/pw\/[a-zA-Z0-9\-_]+)"/g
+
+  const responseText = typeof response.data === 'string' 
+    ? response.data 
+    : JSON.stringify(response.data)
+  const matches = [...responseText.matchAll(regex)]
+  const uniqueMatch = [...new Set(matches)]
+  const urls = uniqueMatch.map(match => match[1]).slice(0,-2)
+  console.log(urls)
+}
+```
+<br/>
+Although the functionality worked great, I ran into a lot of flaws with this first iteration. The biggest one being the image quality. The photos in the public google photos url html only contained the preview images, causing them to show up grainy when blown up. Another flaw was I couldn't access any photo metadata. This was another main feature I wanted to implement, causing me to go to a new iteration. 
+<br/>
+**Pivots**
+
+If I wanted to continue with using google photos, I'd have to find new way to access their photos. With some research I found I could use the google photos picker API, which allows users to upload their google photos to a site. I would then need a way to store these images after accessing the photos, which lead me to creating a PostgreSQL database with Supabase. I ran into another issues, Supabase free tier only allows for 1GB of storage. Since I planned to have over a hundred photos on my website I knew this would not be enough. I decided to then create an s3 bucket where the images would live. I could then store the s3 key and photo url in the database. MORE HERE
+<br/>
+
 ### Challenges
-Although the functionality worked great, I ran into a lot of flaws with this first iterations. The biggest one being the image quality. The photos in the public google photos url html only contained the preview images, causing them to show up grainy when blown up. Another flaw was I couldn't access any photo metadata. This was another main feature I wanted to implement, causing me to go to a new iteration. 
+**Learning APIs**
+
+This was my first time really working with APIs. Google's Photos API Documentation was not for beginners working with APIs. The learning curve was big but once I read a bit about how to create, read, update, and delete. Learning google oAuth structure 
+<br/>
+**OAuth**
+
+In order to get the google photos API working you have to set up there OAuth. A complicated process but the image below provided my Google OAuth Documentation made the whole process make sense. You need to first request a token from the Google Servers. Next, the user fills in there credientals and recieves an authorization code. You need to save this code to then make another call to the servers to exchange your code for the token. An authorization code is only good one time but an OAuth are valid for 60 days with refreash tokens lasting a year. Once you have the token you can then call the Google Photos API.
+<br/>
+![Google OAuth Workflow](/google-oauth.png)
+
+
 <br/>
 ### Results
-
+In the end, I created a photo gallery website that allowed me to easily upload photos. I learned about API calls and how to write them. I learned about cloud databases like PostgreSQL and Supabase. I set up my first ever AWS account which I'm sure I will get much use in the future as I continue to build more complex solutions. I also got an easy way to share my travel adventures with the people I love.
 
 <br/>  
 
@@ -52,6 +90,7 @@ Although the functionality worked great, I ran into a lot of flaws with this fir
 
 **RESOURCES**
 
-* [Working Record Player | HTML, CSS & JavaScript by Coding Artist](https://www.youtube.com/watch?v=vvdRu7ljg54)
+* [Google OAuth Documentation](https://developers.google.com/identity/protocols/oauth2)
+* [Google Photos API Documentation](https://developers.google.com/photos/picker/guides/get-started-picker)
 
 </Callout>  
