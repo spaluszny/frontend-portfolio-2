@@ -98,7 +98,8 @@ export type TagCategory =
   | 'frameworks'
   | 'data'
   | 'design'
-  | 'tools';
+  | 'tools'
+  | 'cloud';
 
 // config/tags.ts
 
@@ -118,6 +119,10 @@ export const TAG_CATEGORIES: Record<TagCategory, { label: string; colors: string
   design: {
     label: 'Design & Prototyping',
     colors: 'bg-pink-100 text-pink-800 border-pink-200 dark:bg-rose-500/20 dark:text-rose-200 dark:border-rose-400/30'
+  },
+  cloud: {
+    label: 'Cloud & Infrastructure',
+    colors: 'bg-cyan-100 text-cyan-800 border-cyan-200 dark:bg-cyan-500/20 dark:text-cyan-200 dark:border-cyan-400/30'
   },
   tools: {
     label: 'Tools & Workflow',
@@ -146,7 +151,7 @@ export const TAGS: TagConfig[] = [
   { name: 'SSRS', category: 'data' },
   { name: 'Excel', category: 'data' },
   { name: 'REST APIs', category: 'data' },
-  { name: 'PostgreSQL', category: 'data'},
+  { name: 'PostgreSQL', category: 'data' },
 
   // Design & Prototyping
   { name: 'Figma', category: 'design' },
@@ -160,5 +165,11 @@ export const TAGS: TagConfig[] = [
   { name: 'Git', category: 'tools' },
   { name: 'GitHub', category: 'tools' },
   { name: 'Agile/Scrum', category: 'tools' },
-  { name: 'VS Code', category: 'tools' }
+  { name: 'VS Code', category: 'tools' },
+
+  // Cloud & Infrastructure
+  { name: 'AWS S3', category: 'cloud' },
+  { name: 'AWS Lambda', category: 'cloud' },
+  { name: 'Vercel', category: 'cloud' },
+  { name: 'Docker', category: 'cloud' },
 ];
