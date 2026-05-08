@@ -84,7 +84,7 @@ export default async function PostPage({ params }: PostPageProps) {
         </div> */}
           <FadeUp>
 
-            <MDXContent code={post.body} />
+            <MDXContent code={post.body}/>
           </FadeUp>
           <FadeUp>
             <div className="flex flex-wrap gap-2 pt-10">

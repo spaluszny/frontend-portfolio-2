@@ -98,7 +98,7 @@ const Navbar = () => {
           <li className={`${getLinkClasses("/contact")} cursor-pointer`}>
             <Link href="/contact" className="p-2">Contact</Link>
           </li>
-          <li><ModeToggle /></li>
+          <li className='w-[1.5rem]'><ModeToggle /></li>
         </ul>
       </div>
 

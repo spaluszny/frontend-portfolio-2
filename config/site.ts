@@ -6,7 +6,8 @@ export const siteConfig = {
     links: {
         github: "https://github.com/spaluszny",
         linkedIn: "https://www.linkedin.com/in/sarah-paluszny/",
-        leetCode: "https://leetcode.com/u/spaluszny/"
+        leetCode: "https://leetcode.com/u/spaluszny/",
+        email: 'sarah.paluszny@gmail.com'
     },
 };
 

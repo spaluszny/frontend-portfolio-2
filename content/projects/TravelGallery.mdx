@@ -4,7 +4,7 @@ tools: "Created using React, Next.js, and Tailwind"
 description: "A full-stack travel photo gallery that showcases photos from my travels to family and friends. The application features a custom admin dashboard where I select photos directly from Google Photos using their Picker API, add location metadata, and upload them directly to my site."
 picture: /travel-gallery.png
 alt: Travel Photography Gallery
-tags: ['React','Next.js', 'Tailwind','TypeScript','Figma', 'REST APIs', 'PostgreSQL','GitHub', 'VS Code', 'AWS S3']
+tags: ['React','Next.js', 'Tailwind','TypeScript','Figma', 'REST APIs', 'PostgreSQL','AWS S3']
 website: http://travel.sarahpaluszny.com
 date: 2025-12-01
 published: true
@@ -46,6 +46,7 @@ I then opened figma to make a design that was suitable for these options. For th
 Since all of my travel photos already lived on google photos, I wanted to find a way to sync them to my website. When browsing my google photos with developer tools, I found that with public google photos links you can scrap the html to find the image previews. I was then able to write a react component that took the public google photos url and return the associated images from that folder. I could easily add photos to my public photos album and it would instantly show up on my site. 
 <br/>
 ```js showLineNumbers
+
 export default async function GooglePhotosAlbumFetcher({ URL }: { URL: string }) {
   const response = await axios.get(URL)
   
@@ -59,6 +60,7 @@ export default async function GooglePhotosAlbumFetcher({ URL }: { URL: string })
   const urls = uniqueMatch.map(match => match[1]).slice(0,-2)
   console.log(urls)
 }
+
 ```
 <br/>
 Although the functionality worked great, I ran into a lot of flaws with this first iteration. The biggest one being the image quality. The photos in the public google photos url html only contained the preview images, causing them to show up grainy when blown up. Another flaw was I couldn't access any photo metadata. This was another main feature I wanted to implement, causing me to go to a new iteration. 

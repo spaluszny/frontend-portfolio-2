@@ -10,6 +10,7 @@ import { PostItem } from "@/Components/postFeatured";
 import PostOther from "@/Components/postOther";
 import Link from "next/link";
 import { SCRIBBLE_PATH } from "@/lib/path";
+import AnimateScribble from "@/Components/animateScribble";
 
 export default function Home() {
   const featuredPosts = posts.filter(post => post.type === 'feature');
@@ -25,38 +26,30 @@ export default function Home() {
 
   return (
     <div className="max-w-screen-xl mx-auto pb-30">
-      <div className="h-screen flex flex-col justify-center pl-10 max-w-screen-xl">
+      <div className="h-screen flex justify-between max-w-screen-xl pb-20">
         <div className="flex flex-row items-center">
-          <div >
-            <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold">SARAH PALUSZNY</h1>
-            <div className="text-2xl font-sans md:text-3xl lg:text-5xl font-light">
+          <div className="">
+            <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold w-100 text-nowrap z-10">SARAH PALUSZNY</h1>
+            <div className="text-2xl font-sans md:text-3xl lg:text-5xl font-light text-nowrap">
               {/* <TypeWriter text='Front-End Developer' speed={150} /> */}
-              <p>Front-End Developer</p>
+              <p>Frontend Developer</p>
             </div>
           </div>
-          {/* <img src='/scribble.svg' width={400}></img> */}
-
-            <svg viewBox="0 0 9115 7892" fill="none">
-              <motion.path
-                d={SCRIBBLE_PATH}
-                stroke="oklch(90.2% 0.063 306.703)"
-                strokeWidth={200}
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: 3, ease: "easeInOut" }}
-              />
-            </svg>
+      
+           <AnimateScribble />
 
         </div>
-        {/* <FontAwesomeIcon
-          icon={faAngleDoubleDown}
-          onClick={scrollToTarget}
-          className="text-black dark:text-white h-5 md:h-8 lg:h-10 animate-bounce absolute bottom-10 left-1/2 transform -translate-x-1/2 z-0"
-        /> */}
+
         <ChevronsDown
           onClick={scrollToTarget}
           className="text-black dark:text-white h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 animate-bounce absolute bottom-10 left-1/2 transform -translate-x-1/2 z-0 cursor-pointer" />
 
+          {/* <AnimateScribble />
+
+        <div className="flex place-items-center">
+          <p className="text-[200px] font-bold leading-none h-fit uppercase">Sarah Paluszny</p>
+          <p className="font-serif w-100 h-fit font-bold text-right">👋Hi, I'm Sarah, a frontend developer passionate about design and usablity. Explore my portfolio below.</p>
+        </div> */}
       </div>
 
       <div className="mx-auto" id='projects'>
@@ -92,7 +85,7 @@ export default function Home() {
         )}
       </div>
 
-      <div className="bg-[rgba(214,211,206,0.2)] dark:bg-[#1e293b] rounded-lg mt-16">
+      <div className="bg-[rgba(214,211,206,0.2)] dark:bg-[#1e293b] rounded-lg mt-16 max-w-screen-xl mx-auto">
         <h2 className="text-2xl font-sans font-light text-center py-10">
           OTHER NOTEWORTHY PROJECTS
         </h2>

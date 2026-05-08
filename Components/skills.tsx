@@ -12,7 +12,7 @@ export default function Skills() {
   }, {} as Record<string, typeof TAGS>);
 
   const categoryOrder: (keyof typeof TAG_CATEGORIES)[] = [
-    'programming', 'frameworks', 'data', 'design', 'tools', 'cloud'
+    'programming', 'frameworks', 'data', 'design', 'cloud'
   ];
 
   return (
@@ -27,10 +27,10 @@ export default function Skills() {
           
           return (
             <div key={category} className="">
-              <h3 className="text-lg font-sans mb-3 text-gray-800 dark:text-gray-200 text-center w-30">
+              <h3 className="text-lg font-sans mb-3 text-gray-800 dark:text-gray-200 text-center w-40">
                 {TAG_CATEGORIES[category].label}
               </h3>
-              <div className="flex flex-col gap-2 w-30">
+              <div className="flex flex-col gap-2 w-40">
                 {tags.map((tag) => (
                   <Tag tag={tag.name} key={tag.name} />
                 ))}

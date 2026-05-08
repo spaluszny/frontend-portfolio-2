@@ -46,6 +46,16 @@ export interface Experience {
 
 export const ExperienceData: Experience[] = [
   {
+    Company: 'Freelance',
+    Title: 'Frontend Engineer',
+    StartDate: 'March 2026',
+    EndDate: 'Present',
+    Description: [
+      "Created custom software for Anything Soundworks, an up and coming post production studio in NYC",
+    ],
+    Tags: ['React','Next.js', 'Tailwind','TypeScript','Figma', 'REST APIs', 'PostgreSQL','AWS S3'],
+  },
+  {
     Company: 'Radiology of Indiana',
     Title: 'Data Analyst',
     StartDate: 'July 2023',
@@ -98,34 +108,34 @@ export type TagCategory =
   | 'frameworks'
   | 'data'
   | 'design'
-  | 'tools'
   | 'cloud';
+  // | 'cloud';
 
 // config/tags.ts
 
 export const TAG_CATEGORIES: Record<TagCategory, { label: string; colors: string }> = {
   programming: {
-    label: 'Programming',
+    label: 'Languages',
     colors: 'bg-blue-100 text-blue-800 border-blue-200 dark:bg-blue-500/20 dark:text-blue-200 dark:border-blue-400/30'
   },
   frameworks: {
-    label: 'Frameworks & Libraries',
+    label: 'Frameworks',
     colors: 'bg-green-100 text-green-800 border-green-200 dark:bg-emerald-500/20 dark:text-emerald-200 dark:border-emerald-400/30'
   },
   data: {
-    label: 'Data & Analytics',
+    label: 'Data',
     colors: 'bg-purple-100 text-purple-800 border-purple-200 dark:bg-violet-500/20 dark:text-violet-200 dark:border-violet-400/30'
   },
   design: {
-    label: 'Design & Prototyping',
+    label: 'Design',
     colors: 'bg-pink-100 text-pink-800 border-pink-200 dark:bg-rose-500/20 dark:text-rose-200 dark:border-rose-400/30'
   },
+  // cloud: {
+  //   label: 'Cloud',
+  //   colors: 'bg-cyan-100 text-cyan-800 border-cyan-200 dark:bg-cyan-500/20 dark:text-cyan-200 dark:border-cyan-400/30'
+  // },
   cloud: {
-    label: 'Cloud & Infrastructure',
-    colors: 'bg-cyan-100 text-cyan-800 border-cyan-200 dark:bg-cyan-500/20 dark:text-cyan-200 dark:border-cyan-400/30'
-  },
-  tools: {
-    label: 'Tools & Workflow',
+    label: 'Cloud',
     colors: 'bg-orange-100 text-orange-800 border-orange-200 dark:bg-amber-500/20 dark:text-amber-200 dark:border-amber-400/30'
   }
 };
@@ -133,7 +143,6 @@ export const TAG_CATEGORIES: Record<TagCategory, { label: string; colors: string
 export const TAGS: TagConfig[] = [
   // Programming
   { name: 'HTML', category: 'programming' },
-  { name: 'MDX', category: 'programming' },
   { name: 'CSS', category: 'programming' },
   { name: 'JavaScript', category: 'programming' },
   { name: 'TypeScript', category: 'programming' },
@@ -159,17 +168,12 @@ export const TAGS: TagConfig[] = [
   { name: 'Photoshop', category: 'design' },
   { name: 'InDesign', category: 'design' },
   { name: 'After Effects', category: 'design' },
-  { name: 'Canva', category: 'design' },
 
   // Tools & Workflow
-  { name: 'Git', category: 'tools' },
-  { name: 'GitHub', category: 'tools' },
-  { name: 'Agile/Scrum', category: 'tools' },
-  { name: 'VS Code', category: 'tools' },
+  // { name: 'Git', category: 'cloud' },
+  // { name: 'GitHub', category: 'tools' },
 
   // Cloud & Infrastructure
   { name: 'AWS S3', category: 'cloud' },
-  { name: 'AWS Lambda', category: 'cloud' },
   { name: 'Vercel', category: 'cloud' },
-  { name: 'Docker', category: 'cloud' },
 ];

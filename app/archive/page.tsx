@@ -13,7 +13,7 @@ export default function Home() {
         <BackButton />
       <h1 className="font-bold text-5xl">THE ARCHIVE</h1>
       <p className="font-serif py-5 w-full md:w-1/2">
-        A collection of not-so-perfect projects to show my progression in front-end engineering.
+        A collection of not-so-perfect projects to show my progression in frontend engineering.
       </p>
 
       {archivePosts?.length > 0 ? (
