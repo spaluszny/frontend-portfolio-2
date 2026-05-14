@@ -32,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="scroll-pt-[8rem]" lang="en" suppressHydrationWarning>
+    <html className="" lang="en" suppressHydrationWarning>
 
       <body className={` ${inriaSans.variable} ${inriaSerif.variable} antialiased`}>
         <Providers>

@@ -12,7 +12,7 @@ export default function Home() {
     return (
 
         <div className="max-w-screen-lg mx-auto">
-
+            <FadeUp>
             <div className="flex flex-col justify-center items-center">
                 <div className="flex flex-row  items-center gap-5 pt-20 sm:pt-40">
                     <h1 className="text-5xl sm:text-5xl lg:text-7xl">RESUME</h1>
@@ -24,8 +24,8 @@ export default function Home() {
                 </div>
                 <hr className="my-5 sm:my-10 h-0.5 w-75 sm:w-150 bg-black"></hr>
 
-            </div>
-            <AnimatedArticle>
+            </div></FadeUp>
+            {/* <AnimatedArticle> */}
                 <div className="flex flex-col gap-5 pb-20">
 
                     <FadeUp><Skills /></FadeUp>
@@ -36,7 +36,7 @@ export default function Home() {
 
 
                 </div>
-            </AnimatedArticle>
+            {/* </AnimatedArticle> */}
         </div>
 
     );

@@ -19,18 +19,18 @@ export default function PostOther({ slug, title, description, tags, tools, readM
     if (!published) return null;
   return (
 
-      <div className="w-80 md:w-100 px-2 md:px-10 lg:border-r lg:border-black lg:dark:border-white lg:last:border-r-0">
+      <div className="w-80 sm:w-100 px-2 sm:px-10 lg:border-r lg:border-black lg:dark:border-white lg:last:border-r-0 ">
 
         <p className="font-sans text-sm font-bold">{tools}</p>
-        <div className="flex flex-row justify-between">
-          <Link href={website} className="font-serif text-xl md:text-2xl transform transition duration-150 hover:underline hover:underline-offset-2">{title}</Link>
-          <div className="flex flex-row gap-5">
+        <div className="flex justify-between gap-10">
+          <Link href={website} className="font-serif text-xl sm:text-2xl transform transition duration-150 hover:underline hover:underline-offset-2">{title}</Link>
+          <div className="flex gap-5">
             <Link href={website} target="_blank" className="transform transition duration-150 hover:scale-110"><FaUpRightFromSquare className="h-5" /></Link>
             {github && (<Link href={github} target="_blank" className="transform transition duration-150 hover:scale-110"><Icons.gitHub className="h-5" /></Link>)}
           </div>
         </div>
 
-        <p className="pt-5 text-sm md:text-base">{description}</p>
+        <p className="pt-5 text-sm sm:text-base">{description}</p>
 
 
         {readMore && (
@@ -46,7 +46,7 @@ export default function PostOther({ slug, title, description, tags, tools, readM
           {tags?.map((tag) => (<Tag tag={tag} key={tag} />))}
         </div>
 
-        <hr className="md:hidden"></hr>
+        {/* <hr className="md:hidden"></hr> */}
 
       </div>
 

@@ -25,18 +25,18 @@ export default function Home() {
 
 
   return (
-    <div className="max-w-screen-xl mx-auto pb-30">
+    <div className="max-w-screen-xl mx-auto pb-30 p-5">
       <div className="h-screen flex justify-between max-w-screen-xl pb-20">
         <div className="flex flex-row items-center">
           <div className="">
-            <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold w-100 text-nowrap z-10">SARAH PALUSZNY</h1>
+            <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-nowrap z-10">SARAH PALUSZNY</h1>
             <div className="text-2xl font-sans md:text-3xl lg:text-5xl font-light text-nowrap">
-              {/* <TypeWriter text='Front-End Developer' speed={150} /> */}
-              <p>Frontend Developer</p>
+              <TypeWriter text='Frontend Developer' speed={150} />
+              {/* <p>Frontend Developer</p> */}
             </div>
           </div>
       
-           <AnimateScribble />
+           {/* <AnimateScribble /> */}
 
         </div>
 
@@ -44,12 +44,6 @@ export default function Home() {
           onClick={scrollToTarget}
           className="text-black dark:text-white h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 animate-bounce absolute bottom-10 left-1/2 transform -translate-x-1/2 z-0 cursor-pointer" />
 
-          {/* <AnimateScribble />
-
-        <div className="flex place-items-center">
-          <p className="text-[200px] font-bold leading-none h-fit uppercase">Sarah Paluszny</p>
-          <p className="font-serif w-100 h-fit font-bold text-right">👋Hi, I'm Sarah, a frontend developer passionate about design and usablity. Explore my portfolio below.</p>
-        </div> */}
       </div>
 
       <div className="mx-auto" id='projects'>
@@ -85,13 +79,13 @@ export default function Home() {
         )}
       </div>
 
-      <div className="bg-[rgba(214,211,206,0.2)] dark:bg-[#1e293b] rounded-lg mt-16 max-w-screen-xl mx-auto">
+      <div className="bg-[rgba(214,211,206,0.2)] dark:bg-[#1e293b] rounded-lg mt-16 p-5 max-w-screen-xl mx-auto">
         <h2 className="text-2xl font-sans font-light text-center py-10">
           OTHER NOTEWORTHY PROJECTS
         </h2>
 
         {otherPosts?.length > 0 ? (
-          <div className="flex flex-row flex-wrap px-10 pb-10 justify-center gap-10 md:gap-0">
+          <div className="flex flex-col lg:flex-row pb-10 justify-center lg:items-start items-center gap-10 lg:gap-5">
             {otherPosts.map((post) => {
               const { slug, title, description, tags, tools, readMore, website, github, published } = post;
               return (

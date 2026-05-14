@@ -1,5 +1,5 @@
 ---
-title: "Travel Photography Gallery with Google Photos API"
+title: "Travel Photography Gallery with Lightweight CMS"
 tools: "Created using React, Next.js, and Tailwind"
 description: "A full-stack travel photo gallery that showcases photos from my travels to family and friends. The application features a custom admin dashboard where I select photos directly from Google Photos using their Picker API, add location metadata, and upload them directly to my site."
 picture: /travel-gallery.png
@@ -80,6 +80,9 @@ This was my first time really working with APIs. Google's Photos API Documentati
 In order to get the google photos API working you have to set up there OAuth. A complicated process but the image below provided my Google OAuth Documentation made the whole process make sense. You need to first request a token from the Google Servers. Next, the user fills in there credientals and recieves an authorization code. You need to save this code to then make another call to the servers to exchange your code for the token. An authorization code is only good one time but an OAuth are valid for 60 days with refreash tokens lasting a year. Once you have the token you can then call the Google Photos API.
 <br/>
 ![Google OAuth Workflow](/google-oauth.png)
+
+### Iterations
+As I continued using the site, I found it difficult to manage the photos displayed. Every time I wanted to take a photo down, I'd have to look through the database, double check it was the correct photo by opening the s3 link, delete the row, and delete the photo in s3. This got old quickly. I decided to build a lightweight CMS to   
 
 
 <br/>
