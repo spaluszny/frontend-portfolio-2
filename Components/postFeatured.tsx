@@ -24,7 +24,7 @@ export function PostItem({ slug, title, description, picture, alt, index, tags, 
     if (picture == '/ungoogleit.png' || picture == '/ungoogleit2.png') {
       return 'border-0'
     }else {
-      return 'border-2'
+      return 'border-0 rounded-md'
     }
   }
 
