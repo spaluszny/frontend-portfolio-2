@@ -46,12 +46,14 @@ export interface Experience {
 
 export const ExperienceData: Experience[] = [
   {
-    Company: 'Freelance',
+    Company: 'Freelance - Anything Soundworks',
     Title: 'Frontend Engineer',
     StartDate: 'March 2026',
     EndDate: 'Present',
     Description: [
-      "Created custom software for Anything Soundworks, an up and coming post production studio in NYC",
+      "Designed and developed a custom media review platform using Next.js, TypeScript, Tailwind CSS, AWS S3, and Supabase, enabling staff to securely share audio and video assets with clients",
+      'Implemented authentication, file uploads, and automated asset expiration workflows using Supabase Auth, storage services, and custom business logic',
+      'Led product design from concept to deployment, creating user flows and high-fidelity prototypes in Figma while collaborating directly with stakeholders'
     ],
     Tags: ['React','Next.js', 'Tailwind','TypeScript','Figma', 'REST APIs', 'PostgreSQL','AWS S3'],
   },
