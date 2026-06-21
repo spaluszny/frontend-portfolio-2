@@ -9,7 +9,7 @@ website: http://travel.sarahpaluszny.com
 date: 2025-12-01
 published: true
 type: feature
-readMore: true
+readMore: false
 github: https://github.com/spaluszny/travel-gallery
 
 ---
@@ -45,8 +45,8 @@ I then opened figma to make a design that was suitable for these options. For th
 
 Since all of my travel photos already lived on google photos, I wanted to find a way to sync them to my website. When browsing my google photos with developer tools, I found that with public google photos links you can scrap the html to find the image previews. I was then able to write a react component that took the public google photos url and return the associated images from that folder. I could easily add photos to my public photos album and it would instantly show up on my site. 
 <br/>
-```js showLineNumbers
-
+```js
+  
 export default async function GooglePhotosAlbumFetcher({ URL }: { URL: string }) {
   const response = await axios.get(URL)
   
@@ -82,7 +82,14 @@ In order to get the google photos API working you have to set up there OAuth. A 
 ![Google OAuth Workflow](/google-oauth.png)
 
 ### Iterations
-As I continued using the site, I found it difficult to manage the photos displayed. Every time I wanted to take a photo down, I'd have to look through the database, double check it was the correct photo by opening the s3 link, delete the row, and delete the photo in s3. This got old quickly. I decided to build a lightweight CMS to   
+As I continued using the site, I found it difficult to manage the photos displayed. Every time I wanted to take a photo down, I'd have to look through the database, double check it was the correct photo by opening the s3 link, delete the row, and delete the photo in s3. This got old quickly. I decided to build a lightweight CMS to help me manage the photos more easily.
+<br/>
+As pictured below, the CMS allows me to easily manage and update the photos on my travel gallery.
+<br/>
+
+![Travel Gallery Dashboard](/travel-gallery-dashboard.png)
+<br/>
+![Travel Gallery Dashboard 2](/travel-gallery-dashboard-2.png)
 
 
 <br/>
