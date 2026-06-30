@@ -4,6 +4,12 @@ import "./globals.css";
 import Navbar from "@/Components/navbar";
 import { Providers } from "@/Components/providers";
 
+import TransitionProvider from "@/providers/transitionProviders";
+import TabManager from "@/Components/tabManager";
+// import { ViewTransition } from 'react'
+
+const ACTIVE_TITLE = 'Sarah Paluszny';
+const INACTIVE_TITLE = 'nooo come back :(';
 
 
 const inriaSans = Inria_Sans({
@@ -19,9 +25,9 @@ const inriaSerif = Inria_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Sarah Paluszny",
+  title: ACTIVE_TITLE,
   description: "Frontend Developer based in NYC specializing in React, TypeScript, and modern web applications. View my portfolio of responsive websites and interactive user experiences.",
-   icons: {
+  icons: {
     icon: "/favicon.png"
   }
 };
@@ -32,18 +38,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="" lang="en" suppressHydrationWarning>
-
-      <body className={` ${inriaSans.variable} ${inriaSerif.variable} antialiased`}>
-        <Providers>
-          <Navbar />
-          {/* <ModeToggle /> */}
-          <main>
-            {children}
-          </main>
-        </Providers>
-      </body>
-
-    </html>
+      <html className="" lang="en" suppressHydrationWarning>
+        <body className={` ${inriaSans.variable} ${inriaSerif.variable} antialiased paper-bg`}>
+          <Providers>
+            <Navbar />
+            <TabManager activeTitle={ACTIVE_TITLE} inactiveTitle={INACTIVE_TITLE} />
+            <TransitionProvider>{children}
+            </TransitionProvider>
+          </Providers>
+        </body>
+      </html>
   );
 }

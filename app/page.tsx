@@ -1,20 +1,17 @@
 'use client'
 
 import { ChevronsDown } from "lucide-react";
-import { motion } from "framer-motion";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faAngleDoubleDown } from "@fortawesome/free-solid-svg-icons";
-import TypeWriter from "../Components/typewriter";
 import { posts } from "#site/content"
 import { PostItem } from "@/Components/postFeatured";
+import { Tag } from "@/Components/tags";
 import PostOther from "@/Components/postOther";
 import Link from "next/link";
-import { SCRIBBLE_PATH } from "@/lib/path";
-import AnimateScribble from "@/Components/animateScribble";
 
 export default function Home() {
   const featuredPosts = posts.filter(post => post.type === 'feature');
   const otherPosts = posts.filter(post => post.type === 'other');
+
+  const heroTags = ['React', 'TypeScript', 'REST APIs', 'Figma']
 
   const scrollToTarget = () => {
     const targetElement = document.getElementById('projects');
@@ -26,23 +23,28 @@ export default function Home() {
 
   return (
     <div className="max-w-screen-xl mx-auto pb-30 p-5">
-      <div className="h-screen flex justify-between max-w-screen-xl pb-20">
-        <div className="flex flex-row items-center">
-          <div className="">
-            <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-nowrap z-10">SARAH PALUSZNY</h1>
-            <div className="text-2xl font-sans md:text-3xl lg:text-5xl font-light text-nowrap">
-              <TypeWriter text='Frontend Developer' speed={150} />
-              {/* <p>Frontend Developer</p> */}
+
+      {/* HERO */}
+      <div className="h-screen flex justify-center flex-col gap-2 md:gap-20 max-w-screen-lg relative mx-auto">
+
+          <div className="flex flex-col gap-1 lg:pt-20">
+            <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-nowrap z-5">SARAH PALUSZNY</h1>
+            <p className="text-2xl font-sans md:text-3xl lg:text-5xl font-light text-nowrap">Frontend Developer</p>
+          </div>
+
+          <div className="flex flex-col md:items-end items-start gap-2">
+            <hr className="w-10 border-1 mt-2"></hr>
+            <p className="md:w-101 w-75 pt-2 lg:text-right text-sm  lg:text-base">Frontend developer focusing on creative design and intuitive user experience. Building thoughtful digital experiences with modern web technologies.</p>
+            <div className="flex flex-row flex-wrap gap-2 mt-2">
+              {heroTags.map((tag) => (
+                <Tag tag={tag} key={tag} />
+              ))}
             </div>
           </div>
-      
-           {/* <AnimateScribble /> */}
-
-        </div>
 
         <ChevronsDown
           onClick={scrollToTarget}
-          className="text-black dark:text-white h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 animate-bounce absolute bottom-10 left-1/2 transform -translate-x-1/2 z-0 cursor-pointer" />
+          className="text-black dark:text-white h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12  absolute bottom-10 left-1/2 transform -translate-x-1/2 z-0 cursor-pointer" />
 
       </div>
 

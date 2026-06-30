@@ -11,7 +11,6 @@ import { Icons } from "@/Components/icons";
 import { FaUpRightFromSquare } from "react-icons/fa6";
 import AnimatedArticle from "@/Components/animateArticle";
 import FadeUp from "@/Components/fadeUp";
-import "@/styles/mdx.css";
 
 
 interface PostPageProps {

@@ -9,7 +9,7 @@ website: http://travel.sarahpaluszny.com
 date: 2025-12-01
 published: true
 type: feature
-readMore: false
+readMore: true
 github: https://github.com/spaluszny/travel-gallery
 
 ---
@@ -20,7 +20,7 @@ github: https://github.com/spaluszny/travel-gallery
 <br/>
 
 ### The Problem
-While traveling I take hundreds of photos, some good, most bad, I wanted a place where the good photos to live that were easy to send to friends and family. Typically I would send 10 photos handpicked by me whenever asked, this was getting redundant everytime I went on a trip, and no matter how many I sent to my family they never seem satisfied. I decided making a website where all my good photos lived would be the perfect solution. 
+While traveling I take hundreds of photos, some good, most bad, I wanted a place where the good photos to live that were easy to send to friends and family. With the choas of traveling, I often forget to send picture. I decided making a website where all my good photos lived would be the perfect solution. 
 <br/>
 When asked for photos, I could simply send a link that would open to my most recent photos. The user could then look at other photos based on continents to see where else I've been. When clicked the photos would have some information, such as location, date, and a caption. I could also implement a newletter that would notify family when I posted new photos.
 <br/>
@@ -41,11 +41,14 @@ I then opened figma to make a design that was suitable for these options. For th
 
 ### Technical Approach
 
-**Image Upload**
-
-Since all of my travel photos already lived on google photos, I wanted to find a way to sync them to my website. When browsing my google photos with developer tools, I found that with public google photos links you can scrap the html to find the image previews. I was then able to write a react component that took the public google photos url and return the associated images from that folder. I could easily add photos to my public photos album and it would instantly show up on my site. 
+As mentioned in the design approach, an easy way to upload photos was an important key feature. Since all of my travel photos already lived on google photos, I wanted to find a way to sync them to my website.
 <br/>
-```js
+**Approach #1**
+
+When browsing my google photos with developer tools, I found that with public google photos links you can scrap the html to find the image previews. I was then able to write a react component that took the public google photos url and return the associated images from that folder. I could easily add photos to my public photos album and it would instantly show up on my site. 
+<br/>
+
+```jsx
   
 export default async function GooglePhotosAlbumFetcher({ URL }: { URL: string }) {
   const response = await axios.get(URL)
@@ -58,22 +61,26 @@ export default async function GooglePhotosAlbumFetcher({ URL }: { URL: string })
   const matches = [...responseText.matchAll(regex)]
   const uniqueMatch = [...new Set(matches)]
   const urls = uniqueMatch.map(match => match[1]).slice(0,-2)
-  console.log(urls)
+
+  return(
+    urls.map(url => {<img src={url}/>})
+  )
+
 }
 
 ```
 <br/>
-Although the functionality worked great, I ran into a lot of flaws with this first iteration. The biggest one being the image quality. The photos in the public google photos url html only contained the preview images, causing them to show up grainy when blown up. Another flaw was I couldn't access any photo metadata. This was another main feature I wanted to implement, causing me to go to a new iteration. 
+Although the functionality worked great, I ran into a lot of flaws with this first iteration. The biggest one being the image quality. The photos in the public google photos url html only contained the preview images, causing them to show up grainy when blown up. Another flaw was I couldn't access any photo metadata. This was another main feature I wanted to implement, meaning I'd have to find another approach.
 <br/>
-**Pivots**
+**Approach #2**
 
-If I wanted to continue with using google photos, I'd have to find new way to access their photos. With some research I found I could use the google photos picker API, which allows users to upload their google photos to a site. I would then need a way to store these images after accessing the photos, which lead me to creating a PostgreSQL database with Supabase. I ran into another issues, Supabase free tier only allows for 1GB of storage. Since I planned to have over a hundred photos on my website I knew this would not be enough. I decided to then create an s3 bucket where the images would live. I could then store the s3 key and photo url in the database. MORE HERE
+If I wanted to continue with using google photos, I'd have to find new way to access their photos. With some research I found I could use the google photos picker API, which allows users to upload their google photos to a site. I would then need a way to store these images after accessing the photos, which lead me to creating a PostgreSQL database with Supabase. I ran into another issues, Supabase free tier only allows for 1GB of storage. Since I planned to have over a hundred photos on my website I knew this would not be enough. I decided to then create an s3 bucket where the images would live. I could then store the s3 key and photo url in the database.
 <br/>
 
 ### Challenges
 **Learning APIs**
 
-This was my first time really working with APIs. Google's Photos API Documentation was not for beginners working with APIs. The learning curve was big but once I read a bit about how to create, read, update, and delete. Learning google oAuth structure 
+This was my first time really working with APIs. Google's Photos API Documentation was not for beginners. The learning curve was big but once I read a bit about how to create, read, update, and delete. Learning google oAuth structure 
 <br/>
 **OAuth**
 
@@ -81,16 +88,28 @@ In order to get the google photos API working you have to set up there OAuth. A 
 <br/>
 ![Google OAuth Workflow](/google-oauth.png)
 
+<br/>
+**Supabase and AWS**
+
+Once I got the google photos API working, it was time to then upload the photos to my database and s3 buckets. I first needed to create a table schema. I decided on the one below 
+
+<br />
+
 ### Iterations
 As I continued using the site, I found it difficult to manage the photos displayed. Every time I wanted to take a photo down, I'd have to look through the database, double check it was the correct photo by opening the s3 link, delete the row, and delete the photo in s3. This got old quickly. I decided to build a lightweight CMS to help me manage the photos more easily.
 <br/>
 As pictured below, the CMS allows me to easily manage and update the photos on my travel gallery.
 <br/>
-
+<figure>
 ![Travel Gallery Dashboard](/travel-gallery-dashboard.png)
+<figcaption>Travel gallery dashboard featuring photo managment</figcaption>
+</figure>
 <br/>
-![Travel Gallery Dashboard 2](/travel-gallery-dashboard-2.png)
 
+<figure>
+![Travel Gallery Dashboard 2](/travel-gallery-dashboard-2.png)
+<figcaption>Photo edit mod</figcaption>
+</figure>
 
 <br/>
 ### Results

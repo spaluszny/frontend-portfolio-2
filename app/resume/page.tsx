@@ -4,15 +4,12 @@ import { faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
 import Education from "@/Components/education";
 import Experience from "@/Components/experience";
 import Skills from "@/Components/skills";
-import AnimatedArticle from "@/Components/animateArticle";
-import FadeUp from "@/Components/fadeUp";
 
 
 export default function Home() {
     return (
 
         <div className="max-w-screen-lg mx-auto">
-            <FadeUp>
             <div className="flex flex-col justify-center items-center">
                 <div className="flex flex-row  items-center gap-5 pt-20 sm:pt-40">
                     <h1 className="text-5xl sm:text-5xl lg:text-7xl">RESUME</h1>
@@ -24,19 +21,18 @@ export default function Home() {
                 </div>
                 <hr className="my-5 sm:my-10 h-0.5 w-75 sm:w-150 bg-black"></hr>
 
-            </div></FadeUp>
+            </div>
             {/* <AnimatedArticle> */}
-                <div className="flex flex-col gap-5 pb-20">
+            <div className="flex flex-col gap-5 pb-20">
 
-                    <FadeUp><Skills /></FadeUp>
+                <Skills />
 
-                    <FadeUp><Education /></FadeUp>
+                <Experience />
 
-                    <FadeUp><Experience /></FadeUp>
+                <Education />
 
 
-                </div>
-            {/* </AnimatedArticle> */}
+            </div>
         </div>
 
     );

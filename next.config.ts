@@ -9,6 +9,9 @@ if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
 
 const nextConfig: NextConfig = {
   /* config options here */
+  experimental: {
+    viewTransition: true,
+  },
 }
 
 export default nextConfig

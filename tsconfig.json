@@ -38,7 +38,7 @@
     ".next/types/**/*.ts",
     "Components/postFeaturedtsx",
     ".next/dev/types/**/*.ts"
-  ],
+, "providers/transitionProviders.jsx"  ],
   "exclude": [
     "node_modules"
   ]
