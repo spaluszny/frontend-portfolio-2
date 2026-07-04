@@ -5,16 +5,31 @@ import { usePathname } from 'next/navigation'
 import gsap from 'gsap'
 import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin'
 import { PAGE_TRANSITIONS } from '@/config/transitionConfig'
-
 gsap.registerPlugin(DrawSVGPlugin)
+
+// Tailwind's default `sm` breakpoint is 640px
+const SM_BREAKPOINT = 640
 
 const TransitionProvider = ({ children }) => {
   const transitionOverlayRef = useRef(null)
   const svgPathRef = useRef(null)
   const pathname = usePathname()
-
   const getConfig = (path) =>
     PAGE_TRANSITIONS[path] ?? PAGE_TRANSITIONS.default
+
+  const isSmallScreen = () =>
+    typeof window !== 'undefined' && window.innerWidth < SM_BREAKPOINT
+
+  // Checks for Tailwind's `class`-based dark mode strategy
+  // (e.g. <html class="dark">, as set by next-themes).
+  // If you're using the `media` strategy instead, swap this for:
+  // window.matchMedia('(prefers-color-scheme: dark)').matches
+  const isDarkMode = () =>
+    typeof document !== 'undefined' &&
+    document.documentElement.classList.contains('dark')
+
+  const getColor = (config) =>
+    isDarkMode() ? config.darkColor ?? config.color : config.color
 
   useEffect(() => {
     if (svgPathRef.current) {
@@ -26,48 +41,40 @@ const TransitionProvider = ({ children }) => {
     <TransitionRouter
       auto
       leave={(next, from, to) => {
-        const config = getConfig(to) // <-- destination page config
-
-        if (!config.enabled) {
-          next() // skip animation entirely
+        const config = getConfig(to)
+        if (!config.enabled || isSmallScreen()) {
+          next()
           return () => {}
         }
-
-        // Update stroke color before animating
         if (svgPathRef.current) {
-          svgPathRef.current.style.stroke = config.color
+          svgPathRef.current.style.stroke = getColor(config)
         }
-
         const tl = gsap.timeline({ onComplete: next })
         tl.to(transitionOverlayRef.current, {
           opacity: 1,
           duration: 0.1,
-          //,
         }).to(
           svgPathRef.current,
-          { drawSVG: '100%', strokeWidth: 300, duration: 1,  },
+          { drawSVG: '100%', strokeWidth: 300, duration: 1 },
           0
         )
         return () => tl.kill()
       }}
       enter={(next) => {
         const config = getConfig(pathname)
-
-        if (!config.enabled) {
+        if (!config.enabled || isSmallScreen()) {
           next()
           return () => {}
         }
-
         const tl = gsap.timeline({ onComplete: next })
         tl.to(svgPathRef.current, {
           drawSVG: '100% 100%',
           strokeWidth: 2,
           duration: 1,
-         // ease: 'power2.inOut',
         })
           .to(
             transitionOverlayRef.current,
-            { opacity: 0, duration: 0.1,  },
+            { opacity: 0, duration: 0.1 },
             1
           )
           .set(svgPathRef.current, { drawSVG: '0%', strokeWidth: 2 })
@@ -84,7 +91,7 @@ const TransitionProvider = ({ children }) => {
           viewBox="0 0 1316 664"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full scale-[1.3]" 
+          className="w-full h-full scale-[1.3]"
           preserveAspectRatio="xMidYMid slice"
         >
           <path
@@ -101,5 +108,4 @@ const TransitionProvider = ({ children }) => {
     </TransitionRouter>
   )
 }
-
 export default TransitionProvider

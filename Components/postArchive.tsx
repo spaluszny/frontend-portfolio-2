@@ -10,7 +10,7 @@ interface PostItemProps {
   tools: string;
   tags?: Array<string>;
   readMore: boolean;
-  website: string;
+  website?: string;
   github?: string;
   date: string;
   published?: boolean;
@@ -69,14 +69,14 @@ export default function PostArchive({
       {/* LINK column */}
       <td className="py-4">
         <div className="flex flex-row gap-3">
-          <Link 
+          {website && <Link 
             href={website} 
             target="_blank" 
             className="transform transition duration-150 hover:scale-110"
             title="View website"
           >
             <FaUpRightFromSquare className="h-5 w-5" />
-          </Link>
+          </Link>}
           {github && (
             <Link 
               href={github} 

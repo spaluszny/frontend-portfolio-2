@@ -17,7 +17,7 @@ const posts = defineCollection({
         tools: s.string().max(999),
         picture: s.string().max(99),
         alt: s.string().max(99),
-        website: s.string().max(999),
+        website: s.string().max(999).optional(),
         description: s.string().max(999),
         date: s.isodate(),
         published: s.boolean().default(true),
