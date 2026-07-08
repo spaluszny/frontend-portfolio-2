@@ -9,30 +9,18 @@ interface TagPageProps {
   }>
 }
 
-// export const generateStaticParams = () => {
-//   const tags = getAllTags(posts);
-//   const paths = Object.keys(tags).map((tag) => ({ tag: slug(tag) }));
-//   return paths;
-// };
-
 export default async function TagPage({ params }: TagPageProps) {
   const { tag } = await params
   const title = tag.split("-").join(" ")
 
   const displayPosts = getPostsByTagSlug(posts, tag)
   const sortedPosts = sortPosts(displayPosts)
-  // const tags = getAllTags(posts)
-
-  // const sortedTags = sortTagsByCount(tags)
 
   return (
     <div className="max-w-4xl mx-auto pt-40 p-5 pb-20">
       <BackButton />
       <h1 className="font-bold text-5xl uppercase pb-5">#{title}</h1>
-
-      {/* <p className="font-serif py-5 w-full md:w-1/2">
-        A collection of {title} projects to show my progression in front-end engineering.
-      </p> */}
+      
       {sortedPosts?.length > 0 ? (
         <table className="table-auto w-full">
           <thead>
