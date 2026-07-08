@@ -8,6 +8,7 @@ import { Tag } from "@/Components/tags";
 import BackButton from "@/Components/backButton";
 import { Icons } from "@/Components/icons";
 
+
 import '@/styles/mdx.css';
 
 interface PostPageProps {
@@ -48,7 +49,7 @@ export default async function PostPage({ params }: PostPageProps) {
             <h4 className="text-center italic">{post.description}</h4>
             <div className="flex justify-center items-center gap-4">
               {post.github && (
-                <Link href={post.github} target="_blank"><Icons.gitHub className="h-6 transform transition duration-300 hover:scale-110" /></Link>
+                <Link href={post.github} target="_blank" aria-label="Link to GitHub"><Icons.gitHub className="h-6 transform transition duration-300 hover:scale-110" /></Link>
               )}
               <p>|</p><p>Sarah Paluszny</p>
             </div>
@@ -58,7 +59,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
         <div className='pt-10 markdown max-w-3xl mx-auto'>
 
-            {post.website && <Link href={post.website} target="_blank"> <Image
+            {post.website && <Link href={post.website} target="_blank" aria-label="Link to website"> <Image
               src={post.picture}
               alt={post.alt}
               width={700}

@@ -74,6 +74,7 @@ export default function PostArchive({
             target="_blank" 
             className="transform transition duration-150 hover:scale-110"
             title="View website"
+            aria-label="Link to website"
           >
             <FaUpRightFromSquare className="h-5 w-5" />
           </Link>}
@@ -83,6 +84,7 @@ export default function PostArchive({
               target="_blank" 
               className="transform transition duration-150 hover:scale-110"
               title="View GitHub"
+              aria-label="Link to GitHub"
             >
               <Icons.gitHub className="h-5 w-5" />
             </Link>

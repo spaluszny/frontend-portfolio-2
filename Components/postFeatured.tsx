@@ -50,8 +50,8 @@ export function PostItem({ slug, title, description, picture, alt, index, tags, 
         <div className="flex flex-row justify-between items-center gap-5">
           <p className="font-serif text-xl md:text-3xl">{title}</p>
           <div className="flex flex-row gap-5">
-            {website && <Link href={website} target="_blank" className="transform transition duration-150 hover:scale-110"><FaUpRightFromSquare className="h-5" /></Link>}
-            {github && (<Link href={github} target="_blank" className="transform transition duration-150 hover:scale-110"><Icons.gitHub className="h-5" /></Link>)}
+            {website && <Link href={website} target="_blank" aria-label="Link to website" className="transform transition duration-150 hover:scale-110"><FaUpRightFromSquare className="h-5" /></Link>}
+            {github && (<Link href={github} target="_blank" aria-label="Link to GitHub" className="transform transition duration-150 hover:scale-110"><Icons.gitHub className="h-5" /></Link>)}
           </div></div>
 
       </div>
@@ -61,6 +61,7 @@ export function PostItem({ slug, title, description, picture, alt, index, tags, 
         <Link
           href={slug}
           className="hover:opacity-70 transition-all duration-150 font-sans group"
+          aria-label={`Read more about ${title}`}
         >
           Read More <span className="group-hover:translate-x-1 inline-block transition-transform duration-150 pb-5">→</span>
         </Link>

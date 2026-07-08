@@ -23,10 +23,10 @@ export default function PostOther({ slug, title, description, tags, tools, readM
 
         <p className="font-sans text-sm font-bold">{tools}</p>
         <div className="flex justify-between gap-10">
-          {website && <Link href={website} className="font-serif text-xl sm:text-2xl transform transition duration-150 hover:underline hover:underline-offset-2">{title}</Link>}
+          {website && <Link href={website} target="_blank" aria-label="Link to website" className="font-serif text-xl sm:text-2xl transform transition duration-150 hover:underline hover:underline-offset-2">{title}</Link>}
           <div className="flex gap-5">
-            {website && <Link href={website} target="_blank" className="transform transition duration-150 hover:scale-110"><FaUpRightFromSquare className="h-5" /></Link>}
-            {github && (<Link href={github} target="_blank" className="transform transition duration-150 hover:scale-110"><Icons.gitHub className="h-5" /></Link>)}
+            {website && <Link href={website} target="_blank" aria-label="Link to website" className="transform transition duration-150 hover:scale-110"><FaUpRightFromSquare className="h-5" /></Link>}
+            {github && (<Link href={github} target="_blank" aria-label="Link to GitHub" className="transform transition duration-150 hover:scale-110"><Icons.gitHub className="h-5" /></Link>)}
           </div>
         </div>
 
@@ -37,6 +37,7 @@ export default function PostOther({ slug, title, description, tags, tools, readM
           <Link
             href={slug}
             className="hover:opacity-70 transition-all duration-150 font-sans group"
+            aria-label={`Read more about ${title}`}
           >
             Read More <span className="group-hover:translate-x-1 inline-block transition-transform duration-150 pt-2">→</span>
           </Link>

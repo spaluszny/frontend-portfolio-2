@@ -38,15 +38,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <html className="" lang="en" suppressHydrationWarning>
-        <body className={` ${inriaSans.variable} ${inriaSerif.variable} antialiased paper-bg`}>
+    <html className="" lang="en" suppressHydrationWarning>
+      <body className={` ${inriaSans.variable} ${inriaSerif.variable} antialiased paper-bg`}>
+        <main>
           <Providers>
             <Navbar />
             <TabManager activeTitle={ACTIVE_TITLE} inactiveTitle={INACTIVE_TITLE} />
             <TransitionProvider>{children}
             </TransitionProvider>
           </Providers>
-        </body>
-      </html>
+        </main>
+      </body>
+    </html>
   );
 }

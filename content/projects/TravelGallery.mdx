@@ -94,7 +94,7 @@ Once I got the Google Photos API working, it was time to upload the photos into 
 
 <br/>
 
-`[INSERT SCHEMA TABLE/IMAGE HERE]`
+<img src="/database_schema.png" alt="Database Schema" width='200' />
 
 <br/>
 
@@ -102,19 +102,23 @@ Once I got the Google Photos API working, it was time to upload the photos into 
 As I continued using the site, I found it difficult to manage the photos that were displayed. Every time I wanted to take a photo down, I'd have to look through the database, double-check it was the correct photo by opening the S3 link, delete the row, and delete the photo from S3. This got old quickly, so I decided to build a lightweight CMS to help me manage the photos more easily.
 <br/>
 As pictured below, the CMS allows me to easily manage and update the photos on my travel gallery.
-<br/>
-<figure>
-![Travel Gallery Dashboard](/travel-gallery-dashboard.png)
-<figcaption>Travel gallery dashboard featuring photo management</figcaption>
-</figure>
-<br/>
 
-<figure>
-![Travel Gallery Dashboard 2](/travel-gallery-dashboard-2.png)
-<figcaption>Photo edit modal</figcaption>
-</figure>
+<Figure
+  src="/travel-gallery-dashboard.png"
+  alt="Travel Gallery Dashboard"
+  caption="Travel gallery dashboard featuring photo management"
+  width={1200}
+  height={700}
+/>
 
-<br/>
+<Figure
+  src="/travel-gallery-dashboard-2.png"
+  alt="Travel Gallery Dashboard 2"
+  caption="Photo edit modal"
+  width={1200}
+  height={700}
+/>
+
 ### Results
 In the end, I created a photo gallery website that made it easy to upload and manage photos. I learned how to make and structure API calls, how OAuth authentication works end-to-end, and how to work with cloud databases like PostgreSQL and Supabase. I set up my first-ever AWS account, which I'm sure I'll use again as I continue building more complex projects. Most importantly, I got an easy way to share my travel adventures with the people I love.
 
