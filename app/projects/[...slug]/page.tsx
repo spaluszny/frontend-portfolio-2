@@ -3,12 +3,10 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { parseISO, format } from 'date-fns';
-
 import { MDXContent } from "@/Components/mdx-component";
 import { Tag } from "@/Components/tags";
 import BackButton from "@/Components/backButton";
 import { Icons } from "@/Components/icons";
-import FadeUp from "@/Components/fadeUp";
 
 import '@/styles/mdx.css';
 
@@ -68,17 +66,6 @@ export default async function PostPage({ params }: PostPageProps) {
               className="w-full h-auto object-cover border-2 border-black dark:border-white grayscale dark:grayscale-0 hover:grayscale-0 dark:hover:grayscale mb-10 transition-all duration-400"
               priority={true}
             /></Link>}
-
-          {/* <div className="flex flex-row justify-between items-baseline">
-
-          <div className="flex flex-row gap-5">
-            <Link href={post.website} target="_blank" className="transform transition duration-150 hover:scale-110"><FaUpRightFromSquare className="h-5" /></Link>
-            {post.github && (<Link href={post.github} target="_blank" className="transform transition duration-150 hover:scale-110"><Icons.gitHub className="h-5" /></Link>)}
-          </div>
-
-
-        </div> */}
-
 
             <MDXContent code={post.body}/>
 

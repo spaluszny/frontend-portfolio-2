@@ -14,17 +14,17 @@ github: https://github.com/spaluszny/travel-gallery
 
 ---
 
-<br/>  
+<br/>
 
-<p className='drop-cap'>Recently I embarked on a journey to Nepal to do the Manaslu Trek. It was a wonderful adventure filled with angelic mountains, bewhiching waterfalls, magnificent wild life. As someone who travels a lot I'm always being asked by my family and friends to send pictures and I've always struggled picking the top ones to send to each individual. I decided to make a travel photo gallery to solve this issue.</p>
+<p className='drop-cap'>Recently I embarked on a journey to Nepal to do the Manaslu Trek. It was a wonderful adventure filled with angelic mountains, bewitching waterfalls, and magnificent wildlife. As someone who travels a lot, I'm always being asked by my family and friends to send pictures, and I've always struggled picking the top ones to send to each individual. I decided to make a travel photo gallery to solve this issue.</p>
 <br/>
 
 ### The Problem
-While traveling I take hundreds of photos, some good, most bad, I wanted a place where the good photos to live that were easy to send to friends and family. With the choas of traveling, I often forget to send picture. I decided making a website where all my good photos lived would be the perfect solution. 
+While traveling I take hundreds of photos — some good, most bad — and I wanted a place where the good photos could live that were easy to send to friends and family. With the chaos of traveling, I often forget to send pictures. I decided that making a website where all my good photos lived would be the perfect solution.
 <br/>
-When asked for photos, I could simply send a link that would open to my most recent photos. The user could then look at other photos based on continents to see where else I've been. When clicked the photos would have some information, such as location, date, and a caption. I could also implement a newletter that would notify family when I posted new photos.
+When asked for photos, I could simply send a link that would open to my most recent photos. The user could then look at other photos based on continents to see where else I've been. When clicked, the photos would show some information, such as location, date, and a caption. I could also implement a newsletter that would notify family when I posted new photos.
 <br/>
-The biggest issue would updating the website. I knew if I didn't implement this into the website itself, I would never update it. Thus leading me to my goal: **Create a photo gallery website with easy to use image upload and metadata.**
+The biggest issue would be updating the website. I knew if I didn't build that process into the website itself, I would never keep it updated. That led me to my goal: **Create a photo gallery website with easy-to-use image upload and metadata.**
 
 <br/>
 ### Design Approach
@@ -32,20 +32,20 @@ First, I started with brainstorming features for my website. I came up with the 
 <br/>
 **FEATURES**
 * Easy way to upload photos
-* Photos filtered by location, displayed in way for easy browsing
+* Photos filtered by location, displayed in a way for easy browsing
 * Photo information such as date, location, and a description
-* Notification system that sends a user an email when new photos are uploaded
+* Notification system that emails a user when new photos are uploaded
 <br/>
-I then opened figma to make a design that was suitable for these options. For the design, I decided to go with a sidebar that contained all site navigation and on the left a masonry grid of images that are filtered by continent. When you click on a photo a lightbox would appear with photo metadata including date, location, and a description. I then added a 'join the newsletter' at the bottom. Where a user could input their email, and receive notifications when I upload new photos. This design checked most of my initial features I wanted. Once I felt comfortable with the design, I started to code.
+I then opened Figma to design something that fit these requirements. I decided to go with a sidebar containing all site navigation, and on the right, a masonry grid of images filtered by continent. When you click on a photo, a lightbox appears with photo metadata including date, location, and a description. I then added a "join the newsletter" section at the bottom, where a user could input their email and receive notifications when I upload new photos. This design checked most of the boxes for my initial feature list, so once I felt comfortable with it, I started to code.
 <br/>
 
 ### Technical Approach
 
-As mentioned in the design approach, an easy way to upload photos was an important key feature. Since all of my travel photos already lived on google photos, I wanted to find a way to sync them to my website.
+As mentioned in the design approach, an easy way to upload photos was a key feature. Since all of my travel photos already lived on Google Photos, I wanted to find a way to sync them to my website.
 <br/>
 **Approach #1**
 
-When browsing my Google Photos with developer tools, I found that with public google photos links you can scrap the html to find the image previews. I was then able to write a react component that took the public google photos url and return the associated images from that folder. I could easily add photos to my public photos album and it would instantly show up on my site. 
+While browsing my Google Photos with developer tools, I found that public Google Photos links expose image previews in their raw HTML. I was able to write a React component that took a public Google Photos album URL and returned the associated images from that folder. I could add photos to my public album and they would instantly show up on my site.
 <br/>
 
 ```jsx {5} showLineNumbers
@@ -69,58 +69,62 @@ export default async function GooglePhotosAlbumFetcher({ URL }: { URL: string })
 
 ```
 <br/>
-Although the functionality worked great, I ran into a lot of flaws with this first iteration. The biggest one being the image quality. The photos in the public google photos url html only contained the preview images, causing them to show up grainy when blown up. Another flaw was I couldn't access any photo metadata. This was another main feature I wanted to implement, meaning I'd have to find another approach.
+Although the functionality worked great, I ran into a lot of flaws with this first iteration. The biggest one was image quality — the public Google Photos HTML only contains preview-sized images, so they showed up grainy when blown up. Another flaw was that I couldn't access any photo metadata, which was another core feature I wanted. This meant I'd have to find another approach.
 <br/>
 **Approach #2**
 
-If I wanted to continue with using google photos, I'd have to find new way to access their photos. With some research I found I could use the google photos picker API, which allows users to upload their google photos to a site. I would then need a way to store these images after accessing the photos, which lead me to creating a PostgreSQL database with Supabase. I ran into another issues, Supabase free tier only allows for 1GB of storage. Since I planned to have over a hundred photos on my website I knew this would not be enough. I decided to then create an s3 bucket where the images would live. I could then store the s3 key and photo url in the database.
+If I wanted to continue using Google Photos as my source, I needed a new way to access the photos. After some research, I found I could use the Google Photos Picker API, which lets users select and upload their own Google Photos into an app. I'd then need a way to store the images after retrieving them, which led me to setting up a PostgreSQL database with Supabase. I ran into another issue there: Supabase's free tier only allows 1GB of storage, and since I planned to have over a hundred photos on my site, I knew that wouldn't be enough. I decided to create an S3 bucket to hold the actual images, and store the S3 key and photo URL as references in the database instead.
 <br/>
 
 ### Challenges
 **Learning APIs**
 
-This was my first time really working with APIs. Google's Photos API Documentation was not for beginners. The learning curve was big but once I read a bit about how to create, read, update, and delete. Learning google oAuth structure 
+This was my first time really working with APIs, and Google's Photos API documentation was not built for beginners. The learning curve was steep, but once I understood the basics of how to create, read, update, and delete records through the API, the rest started to click — including learning Google's OAuth structure well enough to actually authenticate my requests.
 <br/>
 **OAuth**
 
-In order to get the google photos API working you have to set up there OAuth. A complicated process but the image below provided my Google OAuth Documentation made the whole process make sense. You need to first request a token from the Google Servers. Next, the user fills in there credientals and recieves an authorization code. You need to save this code to then make another call to the servers to exchange your code for the token. An authorization code is only good one time but an OAuth are valid for 60 days with refreash tokens lasting a year. Once you have the token you can then call the Google Photos API.
+To get the Google Photos API working, you have to set up their OAuth flow — a complicated process, but the diagram below of Google's OAuth documentation made it click for me. You first request a token from Google's servers. Next, the user enters their credentials and receives an authorization code. You save this code and use it to make another call to the server to exchange it for an access token. An authorization code can only be used once, but the resulting OAuth token is valid for 60 days, with refresh tokens lasting up to a year. Once you have the token, you can call the Google Photos API.
 <br/>
 ![Google OAuth Workflow](/google-oauth.png)
 
 <br/>
 **Supabase and AWS**
 
-Once I got the google photos API working, it was time to then upload the photos to my database and s3 buckets. I first needed to create a table schema. I decided on the one below 
+Once I got the Google Photos API working, it was time to upload the photos into my database and S3 bucket. I first needed to design a table schema. I decided on the one below:
 
-<br />
+<br/>
+
+`[INSERT SCHEMA TABLE/IMAGE HERE]`
+
+<br/>
 
 ### Iterations
-As I continued using the site, I found it difficult to manage the photos displayed. Every time I wanted to take a photo down, I'd have to look through the database, double check it was the correct photo by opening the s3 link, delete the row, and delete the photo in s3. This got old quickly. I decided to build a lightweight CMS to help me manage the photos more easily.
+As I continued using the site, I found it difficult to manage the photos that were displayed. Every time I wanted to take a photo down, I'd have to look through the database, double-check it was the correct photo by opening the S3 link, delete the row, and delete the photo from S3. This got old quickly, so I decided to build a lightweight CMS to help me manage the photos more easily.
 <br/>
 As pictured below, the CMS allows me to easily manage and update the photos on my travel gallery.
 <br/>
 <figure>
 ![Travel Gallery Dashboard](/travel-gallery-dashboard.png)
-<figcaption>Travel gallery dashboard featuring photo managment</figcaption>
+<figcaption>Travel gallery dashboard featuring photo management</figcaption>
 </figure>
 <br/>
 
 <figure>
 ![Travel Gallery Dashboard 2](/travel-gallery-dashboard-2.png)
-<figcaption>Photo edit mod</figcaption>
+<figcaption>Photo edit modal</figcaption>
 </figure>
 
 <br/>
 ### Results
-In the end, I created a photo gallery website that allowed me to easily upload photos. I learned about API calls and how to write them. I learned about cloud databases like PostgreSQL and Supabase. I set up my first ever AWS account which I'm sure I will get much use in the future as I continue to build more complex solutions. I also got an easy way to share my travel adventures with the people I love.
+In the end, I created a photo gallery website that made it easy to upload and manage photos. I learned how to make and structure API calls, how OAuth authentication works end-to-end, and how to work with cloud databases like PostgreSQL and Supabase. I set up my first-ever AWS account, which I'm sure I'll use again as I continue building more complex projects. Most importantly, I got an easy way to share my travel adventures with the people I love.
 
-<br/>  
+<br/>
 
-<Callout>  
+<Callout>
 
 **RESOURCES**
 
 * [Google OAuth Documentation](https://developers.google.com/identity/protocols/oauth2)
 * [Google Photos API Documentation](https://developers.google.com/photos/picker/guides/get-started-picker)
 
-</Callout>  
+</Callout>
