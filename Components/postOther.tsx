@@ -10,7 +10,7 @@ interface PostItemProps {
   tools: string;
   tags?: Array<string>;
   readMore: boolean;
-  website: string;
+  website?: string;
   published: boolean;
   github?: string;
 }
@@ -23,9 +23,9 @@ export default function PostOther({ slug, title, description, tags, tools, readM
 
         <p className="font-sans text-sm font-bold">{tools}</p>
         <div className="flex justify-between gap-10">
-          <Link href={website} className="font-serif text-xl sm:text-2xl transform transition duration-150 hover:underline hover:underline-offset-2">{title}</Link>
+          {website && <Link href={website} className="font-serif text-xl sm:text-2xl transform transition duration-150 hover:underline hover:underline-offset-2">{title}</Link>}
           <div className="flex gap-5">
-            <Link href={website} target="_blank" className="transform transition duration-150 hover:scale-110"><FaUpRightFromSquare className="h-5" /></Link>
+            {website && <Link href={website} target="_blank" className="transform transition duration-150 hover:scale-110"><FaUpRightFromSquare className="h-5" /></Link>}
             {github && (<Link href={github} target="_blank" className="transform transition duration-150 hover:scale-110"><Icons.gitHub className="h-5" /></Link>)}
           </div>
         </div>

@@ -13,7 +13,7 @@ interface PostItemProps {
   index: number;
   tags?: Array<string>;
   readMore: boolean;
-  website: string;
+  website?: string;
   github?: string;
 }
 
@@ -31,7 +31,7 @@ export function PostItem({ slug, title, description, picture, alt, index, tags, 
 
   const imageSection = (
     <div className={`overflow-hidden transition-all duration-300 ${border()} dark:border-0  md:w-125`}>
-      <Link href={website} target="_blank">
+      {website && <Link href={website} target="_blank">
         <Image
           src={picture}
           alt={alt}
@@ -39,7 +39,7 @@ export function PostItem({ slug, title, description, picture, alt, index, tags, 
           height={300}
           className="w-full h-auto object-cover hover:grayscale-100 transition duration-150"
         />
-      </Link>
+      </Link>}
     </div>
   );
 
@@ -50,7 +50,7 @@ export function PostItem({ slug, title, description, picture, alt, index, tags, 
         <div className="flex flex-row justify-between items-center gap-5">
           <p className="font-serif text-xl md:text-3xl">{title}</p>
           <div className="flex flex-row gap-5">
-            <Link href={website} target="_blank" className="transform transition duration-150 hover:scale-110"><FaUpRightFromSquare className="h-5" /></Link>
+            {website && <Link href={website} target="_blank" className="transform transition duration-150 hover:scale-110"><FaUpRightFromSquare className="h-5" /></Link>}
             {github && (<Link href={github} target="_blank" className="transform transition duration-150 hover:scale-110"><Icons.gitHub className="h-5" /></Link>)}
           </div></div>
 

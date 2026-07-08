@@ -6,13 +6,12 @@ export default async function CurrentGoodReads() {
 
     const url = process.env.GOODREADS_URL
 
-    const res = await fetch(url!)
+    const res = await fetch(url!,{ next: {revalidate: 3600}})
     const html = await res.text()
     const $ = cheerio.load(html)
 
     const books = $('.Updates').map((i, element) => {
         const progressText = $(element).find('a.greyText.smallText').text()
-        console.log(progressText)
 
         let percent = 0
 
@@ -48,7 +47,7 @@ export default async function CurrentGoodReads() {
 
             <div className='hidden lg:block bg-[rgba(214,211,206,0.2)] dark:bg-[#1e293b] w-full px-10 py-2 relative rounded-lg mt-2'>
                 
-                <ToolTip text='This data is from the currently reading section in GoodReads' />
+                <ToolTip text="This data is pulled from the 'Currently Reading' section of my Goodreads profile" />
 
                 <div className='flex flex-col gap-5'>
                     {books.slice(1).map((book, key) => (

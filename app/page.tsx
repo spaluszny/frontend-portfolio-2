@@ -25,7 +25,7 @@ export default function Home() {
     <div className="max-w-screen-xl mx-auto pb-30 p-5">
 
       {/* HERO */}
-      <div className="h-screen flex justify-center flex-col gap-2 md:gap-20 max-w-screen-lg relative mx-auto">
+      <div className="h-screen flex justify-center flex-col gap-2 md:gap-20 max-w-screen-xl relative mx-auto">
 
           <div className="flex flex-col gap-1 lg:pt-20">
             <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-nowrap z-5">SARAH PALUSZNY</h1>
@@ -112,7 +112,7 @@ export default function Home() {
       </div>
 
       <div className="text-right pt-10">
-        <Link href="/archive" className="hover:opacity-70 transition-all duration-150 font-sans group md:text-2xl pt-20 font-light pr-10">
+        <Link href="/archive" className="hover:opacity-70 transition-all duration-150 font-sans group md:text-2xl font-light pr-10">
           VIEW PROJECT ARCHIVE <span className="group-hover:translate-x-1 inline-block transition-transform duration-150 pb-5">→</span>
         </Link>
       </div>
