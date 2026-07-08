@@ -41,19 +41,18 @@ export default defineConfig({
     }, collections: { posts },
     mdx: {
         rehypePlugins: [
-            rehypeSlug,
-            [rehypePrettyCode, { theme: "github-dark" }],
+            rehypeSlug, 
+            [rehypePrettyCode, { theme: 'tokyo-night' }],
             [
-                rehypeAutolinkHeadings,
-                {
-                    behavior: "wrap",
+                rehypeAutolinkHeadings,{
+                    behavior: 'wrap',
                     properties: {
-                        className: ["subheading-anchor"],
-                        ariaLabel: "Link to section",
-                    },
-                },
-            ],
-        ],
+                        className: ['subheading-anchor'],
+                        ariaLabel: ["Link to section"]
+
+                    }
+                }
+            ]],
         remarkPlugins: [],
     },
 })

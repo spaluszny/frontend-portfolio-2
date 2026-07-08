@@ -38,8 +38,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <html className="" lang="en" suppressHydrationWarning>
-        <body className={` ${inriaSans.variable} ${inriaSerif.variable} antialiased paper-bg`}>
+      <html className="paper-bg scroll-pt-[7rem]" lang="en" suppressHydrationWarning>
+        <body className={` ${inriaSans.variable} ${inriaSerif.variable} antialiased`}>
           <Providers>
             <Navbar />
             <TabManager activeTitle={ACTIVE_TITLE} inactiveTitle={INACTIVE_TITLE} />

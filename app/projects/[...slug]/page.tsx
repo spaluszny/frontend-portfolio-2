@@ -8,10 +8,9 @@ import { MDXContent } from "@/Components/mdx-component";
 import { Tag } from "@/Components/tags";
 import BackButton from "@/Components/backButton";
 import { Icons } from "@/Components/icons";
-import { FaUpRightFromSquare } from "react-icons/fa6";
-import AnimatedArticle from "@/Components/animateArticle";
 import FadeUp from "@/Components/fadeUp";
 
+import '@/styles/mdx.css';
 
 interface PostPageProps {
   params: Promise<{
@@ -45,8 +44,6 @@ export default async function PostPage({ params }: PostPageProps) {
 
     <article className="max-w-5xl mx-auto pb-20 pt-25 sm:pt-50 pr-8 pl-8">
       <BackButton />
-      <AnimatedArticle>
-        <FadeUp>
           <div className="flex flex-col gap-7">
             <h4 className="text-center uppercase">{dateFormat}</h4>
             <h1 className="text-center">{post.title}</h1>
@@ -59,19 +56,19 @@ export default async function PostPage({ params }: PostPageProps) {
             </div>
 
           </div>
-        </FadeUp>
+
 
         <div className='pt-10 markdown max-w-3xl mx-auto'>
-          <FadeUp>
-            <Link href={post.website} target="_blank"> <Image
+
+            {post.website && <Link href={post.website} target="_blank"> <Image
               src={post.picture}
               alt={post.alt}
               width={700}
               height={600}
               className="w-full h-auto object-cover border-2 border-black dark:border-white grayscale dark:grayscale-0 hover:grayscale-0 dark:hover:grayscale mb-10 transition-all duration-400"
               priority={true}
-            /></Link>
-          </FadeUp>
+            /></Link>}
+
           {/* <div className="flex flex-row justify-between items-baseline">
 
           <div className="flex flex-row gap-5">
@@ -81,17 +78,16 @@ export default async function PostPage({ params }: PostPageProps) {
 
 
         </div> */}
-          <FadeUp>
+
 
             <MDXContent code={post.body}/>
-          </FadeUp>
-          <FadeUp>
+
             <div className="flex flex-wrap gap-2 pt-10">
               {post.tags?.map(tag => <Tag tag={tag} key={tag} />)}
             </div>
-          </FadeUp>
+
         </div>
-      </AnimatedArticle >
+
     </article>
 
   )
