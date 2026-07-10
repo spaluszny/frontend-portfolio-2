@@ -5,31 +5,34 @@ import { usePathname } from 'next/navigation'
 import gsap from 'gsap'
 import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin'
 import { PAGE_TRANSITIONS } from '@/config/transitionConfig'
+
 gsap.registerPlugin(DrawSVGPlugin)
 
-// Tailwind's default `sm` breakpoint is 640px
 const SM_BREAKPOINT = 640
 
 const TransitionProvider = ({ children }) => {
   const transitionOverlayRef = useRef(null)
   const svgPathRef = useRef(null)
+  const tlRef = useRef(null) // tracks the single active timeline
   const pathname = usePathname()
-  const getConfig = (path) =>
-    PAGE_TRANSITIONS[path] ?? PAGE_TRANSITIONS.default
 
+  const getConfig = (path) => PAGE_TRANSITIONS[path] ?? PAGE_TRANSITIONS.default
   const isSmallScreen = () =>
     typeof window !== 'undefined' && window.innerWidth < SM_BREAKPOINT
-
-  // Checks for Tailwind's `class`-based dark mode strategy
-  // (e.g. <html class="dark">, as set by next-themes).
-  // If you're using the `media` strategy instead, swap this for:
-  // window.matchMedia('(prefers-color-scheme: dark)').matches
   const isDarkMode = () =>
     typeof document !== 'undefined' &&
     document.documentElement.classList.contains('dark')
+  const getColor = (config) => (isDarkMode() ? config.darkColor ?? config.color : config.color)
 
-  const getColor = (config) =>
-    isDarkMode() ? config.darkColor ?? config.color : config.color
+  // Hard-reset everything to a known, "not transitioning" state.
+  // Called before every leave/enter so an interrupted (killed) tween
+  // can never leave the DOM in a half-finished state.
+  const resetTransitionState = () => {
+    tlRef.current?.kill()
+    gsap.killTweensOf([transitionOverlayRef.current, svgPathRef.current])
+    gsap.set(transitionOverlayRef.current, { opacity: 0 })
+    gsap.set(svgPathRef.current, { drawSVG: '0%', strokeWidth: 2 })
+  }
 
   useEffect(() => {
     if (svgPathRef.current) {
@@ -46,18 +49,22 @@ const TransitionProvider = ({ children }) => {
           next()
           return () => {}
         }
+
+        resetTransitionState()
+
         if (svgPathRef.current) {
           svgPathRef.current.style.stroke = getColor(config)
         }
+
         const tl = gsap.timeline({ onComplete: next })
-        tl.to(transitionOverlayRef.current, {
-          opacity: 1,
-          duration: 0.1,
-        }).to(
+        tlRef.current = tl
+
+        tl.to(transitionOverlayRef.current, { opacity: 1, duration: 0.1 }).to(
           svgPathRef.current,
           { drawSVG: '100%', strokeWidth: 300, duration: 1 },
           0
         )
+
         return () => tl.kill()
       }}
       enter={(next) => {
@@ -66,18 +73,27 @@ const TransitionProvider = ({ children }) => {
           next()
           return () => {}
         }
-        const tl = gsap.timeline({ onComplete: next })
+
+        // Don't call resetTransitionState() here — it would snap the
+        // overlay back to opacity 0 before it's had a chance to reveal.
+        // Just kill any stray tween so the new timeline owns the props cleanly.
+        tlRef.current?.kill()
+        gsap.killTweensOf([transitionOverlayRef.current, svgPathRef.current])
+
+        const tl = gsap.timeline({
+          onComplete: () => {
+            gsap.set(svgPathRef.current, { drawSVG: '0%', strokeWidth: 2 })
+            next()
+          },
+        })
+        tlRef.current = tl
+
         tl.to(svgPathRef.current, {
           drawSVG: '100% 100%',
           strokeWidth: 2,
           duration: 1,
-        })
-          .to(
-            transitionOverlayRef.current,
-            { opacity: 0, duration: 0.1 },
-            1
-          )
-          .set(svgPathRef.current, { drawSVG: '0%', strokeWidth: 2 })
+        }).to(transitionOverlayRef.current, { opacity: 0, duration: 0.1 }, 1)
+
         return () => tl.kill()
       }}
     >
@@ -108,4 +124,5 @@ const TransitionProvider = ({ children }) => {
     </TransitionRouter>
   )
 }
+
 export default TransitionProvider
