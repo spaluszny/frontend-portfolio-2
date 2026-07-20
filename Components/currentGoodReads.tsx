@@ -33,12 +33,14 @@ export default async function CurrentGoodReads() {
         }
     }).get()
 
+    console.log(books)
+
     return (
         <>
             
 
             <div className='block w-full lg:hidden'>
-                {books.slice(1).map((book, key) => (
+                {books.slice(0).map((book, key) => (
                     <p key={key}><span className='font-bold uppercase'> Currently Reading:</span> {book.title} by {book.author}</p>
                 ))}
             </div>
@@ -50,7 +52,7 @@ export default async function CurrentGoodReads() {
                 <ToolTip text="This data is pulled from the 'Currently Reading' section of my Goodreads profile" />
 
                 <div className='flex flex-col gap-5'>
-                    {books.slice(1).map((book, key) => (
+                    {books.slice(0).map((book, key) => (
                         <div key={key} className='flex items-center'>
                             <img src={book.img} alt={book.title} className='h-25 rounded-xs'></img>
                             <div className='p-5 grow'>

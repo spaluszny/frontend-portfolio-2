@@ -35,6 +35,7 @@ export default function Home() {
           <div className="flex flex-col md:items-end items-start gap-2">
             <hr className="w-10 border-1 mt-2"></hr>
             <p className="md:w-101 w-75 pt-2 lg:text-right text-sm  lg:text-base">Frontend developer focusing on creative design and intuitive user experience. Building thoughtful digital experiences with modern web technologies.</p>
+            <p className="font-bold">Based in New York, NY</p>
             <div className="flex flex-row flex-wrap gap-2 mt-2">
               {heroTags.map((tag) => (
                 <Tag tag={tag} key={tag} />
