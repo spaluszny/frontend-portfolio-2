@@ -55,7 +55,7 @@ export const ExperienceData: Experience[] = [
       'Implemented authentication, file uploads, and automated asset expiration workflows using Supabase Auth, storage services, and custom business logic',
       'Led product design from concept to deployment, creating user flows and high-fidelity prototypes in Figma while collaborating directly with stakeholders'
     ],
-    Tags: ['React','Next.js', 'Tailwind','TypeScript','Figma', 'REST APIs', 'PostgreSQL','AWS S3'],
+    Tags: ['React', 'Next.js', 'Tailwind', 'TypeScript', 'Figma', 'REST APIs', 'PostgreSQL', 'AWS S3'],
   },
   {
     Company: 'Radiology of Indiana',
@@ -111,7 +111,7 @@ export type TagCategory =
   | 'data'
   | 'design'
   | 'cloud';
-  // | 'cloud';
+// | 'cloud';
 
 // config/tags.ts
 
@@ -168,8 +168,9 @@ export const TAGS: TagConfig[] = [
   { name: 'Figma', category: 'design' },
   { name: 'Framer', category: 'design' },
   { name: 'Photoshop', category: 'design' },
-  { name: 'InDesign', category: 'design' },
+  // { name: 'InDesign', category: 'design' },
   { name: 'After Effects', category: 'design' },
+  { name: 'WordPress', category: 'design' },
 
   // Tools & Workflow
   // { name: 'Git', category: 'cloud' },

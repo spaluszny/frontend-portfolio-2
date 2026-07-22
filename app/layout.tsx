@@ -43,7 +43,7 @@ export default function RootLayout({
         <main>
           <Providers>
             <Navbar />
-            <TabManager activeTitle={ACTIVE_TITLE} inactiveTitle={INACTIVE_TITLE} />
+            {/* <TabManager activeTitle={ACTIVE_TITLE} inactiveTitle={INACTIVE_TITLE} /> */}
             <TransitionProvider>{children}
             </TransitionProvider>
           </Providers>
